@@ -7,33 +7,35 @@ import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import IconButton from '@material-ui/core/IconButton';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+// import FormGroup from '@material-ui/core/FormGroup';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress'; 
-import 'react-datepicker/dist/react-datepicker.css';
+// import CircularProgress from '@material-ui/core/CircularProgress'; 
+//import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 import 'moment/locale/da';
-import Select from '@material-ui/core/Select';
+// import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import { KeyboardArrowRight, KeyboardArrowLeft } from '@material-ui/icons';
+// import { KeyboardArrowRight, KeyboardArrowLeft } from '@material-ui/icons';
 import CloudDownload from '@material-ui/icons/CloudDownload';
 import Map from '@material-ui/icons/Map';
 import TableChart from '@material-ui/icons/TableChart';
 import BarChart from '@material-ui/icons/BarChart';
-import MomentUtils from 'material-ui-pickers/utils/moment-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import DatePicker from 'material-ui-pickers/DatePicker';
-import {hot} from 'react-hot-loader';
+// import MomentUtils from 'material-ui-pickers/utils/moment-utils';
+import MomentUtils from '@date-io/moment';
+import {MuiPickersUtilsProvider} from '@material-ui/pickers';
+import {DatePicker} from '@material-ui/pickers';
+//import {hot} from 'react-hot-loader';
 import MapData from './Map.js';
 import GridData from './Grid.js';
 import GraphData from './Graph.js';
 import './App.css';
 import classnames from 'classnames';
 import ReactExport from 'react-data-export';
+import jQuery from 'jquery';
 
 moment.locale('da');
 
@@ -128,7 +130,7 @@ class App extends Component{
         const csv = this.state.data.map(feature => {
             let s = feature.properties['fuldt ansvarlige deltagere'];
             if(s !== null && s.length > 0){
-                feature.properties['fuldt ansvarlige deltagere'] = s.replace(/\"/g,'');
+                feature.properties['fuldt ansvarlige deltagere'] = s.replace(/"/g,'');
             }
             return feature.properties;
         
@@ -139,7 +141,7 @@ class App extends Component{
     
 
     filterData(feature){
-        const {data, Fraflytter, Tilflytter, Ophørt, Nystartet }= this.state;
+        const { Fraflytter, Tilflytter, Ophørt, Nystartet }= this.state;
         const checked = [];
         if(Fraflytter) checked.push('Fraflytter');
         if(Tilflytter) checked.push('Tilflytter');
@@ -153,7 +155,7 @@ class App extends Component{
         let komUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, "
                         +"komnavn from data.kommune group by komkode, komnavn order by komnavn";
         let that = this;
-        $.ajax({
+        jQuery.ajax({
             url: komUrl,
             type: 'GET',
             dataType: 'jsonp',
@@ -169,7 +171,7 @@ class App extends Component{
         let that = this;
         let dataUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad("  
                     + komkode + ",'" + startDate + "','" + endDate + "')&srs=4326";
-        $.ajax({
+        jQuery.ajax({
             url: dataUrl,
             type: 'GET',
             dataType: 'jsonp',
@@ -219,8 +221,6 @@ class App extends Component{
     }
 
     componentDidMount(){
-        //this.timer = setInterval(this.progress, 20);
-        let that = this;
         let { komkode, startDate, endDate } = this.state;
         this.getData(komkode, startDate, endDate);
         this.getKommuner();
@@ -253,9 +253,9 @@ class App extends Component{
     }
   
     render(){
-        const { value, startDate, endDate, kommuner, loading,komkode } = this.state;
+        const { value, startDate, endDate, kommuner, komkode } = this.state;
         const locale = 'da';
-        const _csvData = this.getCsv();
+       // const _csvData = this.getCsv();
         return (
             <MuiThemeProvider theme={theme}>
             
@@ -264,7 +264,7 @@ class App extends Component{
                     <div className=''>
                         <AppBar position="static" color="default">
                             <Toolbar>
-                                <Grid container spacing={24}>
+                                <Grid container /*spacing={}*/>
                                     <Grid item xs={4}>
                                         <Typography variant="h6" color="inherit">
                                             CVR Flyttemønster
@@ -276,21 +276,25 @@ class App extends Component{
                                                 id="standard-select"
                                                 select
                                                 label="Kommune"
+                                                placeholder="Placeholder"
                                                 className={classnames.textField}
-                                                value={this.state.komkode}
+                                                value={this.state.komkode || ''}
                                                 onChange={this.handleSelect}
                                                 SelectProps={{
                                                     native: true,
                                                     
                                                 }}
                                                 helperText=""
-                                                
+                                                InputLabelProps={{ shrink: true }}
                                             >
-                                            {kommuner.map(kom =>(
-                                                <option key={kom.komkode} value={kom.komkode}>
+                                            {kommuner.map(kom =>{
+                                                let selected = this.state.komkode === kom.komkode ? 'selected' : false;
+                                                if(selected) console.log(kom.komnavn)
+                                                return (
+                                                <option key={kom.komkode} value={kom.komkode} selected={selected}>
                                                     {kom.komnavn}
                                                 </option>
-                                            ))}      
+                                            )})}      
                                             </TextField>
                                         </form>
                                     </Grid>
@@ -314,6 +318,7 @@ class App extends Component{
                                             />   
                                         </MuiPickersUtilsProvider>       
                                     </Grid>
+                                    
                                     
                                     <Grid item xs={2}>
                                            
@@ -391,7 +396,7 @@ class App extends Component{
                     </div>
                   
                 </div>
-                        <FormGroup row>
+                        {/* <FormGroup row>
                             <FormControlLabel 
                                 control={
                                     <Switch
@@ -436,7 +441,7 @@ class App extends Component{
                                 }
                                 label="Nystartet"
                             />
-                        </FormGroup>
+                        </FormGroup> */}
             </MuiThemeProvider>
         );
     }

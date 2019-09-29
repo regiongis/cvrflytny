@@ -5,24 +5,24 @@ import {
   IntegratedSorting,
   FilteringState,
   IntegratedFiltering,
-  DataTypeProvider,
-  GroupingState,
-  IntegratedGrouping
+  DataTypeProvider
+  //  GroupingState,
+  // IntegratedGrouping
 } from "@devexpress/dx-react-grid";
 import {
   Grid,
-  Table,
+  // Table,
   VirtualTable,
   TableHeaderRow,
   TableFilterRow,
-  TableColumnReordering,
-  TableColumnResizing,
-  TableGroupRow,
-  GroupingPanel,
-  DragDropProvider,
-  Toolbar
+  // TableColumnReordering,
+  TableColumnResizing
+  // TableGroupRow,
+  // GroupingPanel,
+  // DragDropProvider,
+  // Toolbar
 } from "@devexpress/dx-react-grid-material-ui";
-import axios from "axios";
+//import axios from "axios";
 
 const getColor = status => {
   //console.log('status = ',status);
@@ -46,7 +46,7 @@ const PnummerFormatter = ({ value }) => {
   console.log("reach pnummer =>", value);
   let link = `https://datacvr.virk.dk/data/visenhed?enhedstype=produktionsenhed&id=${value}`;
   return (
-    <a href={link} target="_blank">
+    <a href={link} target="_blank" rel="noopener noreferrer">
       {value}
     </a>
   );
@@ -56,29 +56,29 @@ const PnummerProvider = props => (
   <DataTypeProvider formatterComponent={PnummerFormatter} {...props} />
 );
 
-const HighlightedCell = ({ value, style }) => {
-  let color = getColor(value);
-  return (
-    <Table.Cell
-      style={{
-        backgroundColor: color
-      }}
-    ></Table.Cell>
-  );
-};
+// const HighlightedCell = ({ value, style }) => {
+//   let color = getColor(value);
+//   return (
+//     <Table.Cell
+//       style={{
+//         backgroundColor: color
+//       }}
+//     ></Table.Cell>
+//   );
+// };
 
 const getRowId = row => {
   //  console.log('row id => ',row['cvr-nummer']);
   return row["keyIndex"];
 };
 
-const Cell = props => {
-  const { column } = props; //console.log('column name == ', column.name);
-  if (column.name === "status") {
-    return <HighlightedCell {...props} />;
-  }
-  return <Table.Cell {...props} />;
-};
+// const Cell = props => {
+//   const { column } = props;
+//   if (column.name === "status") {
+//     return <HighlightedCell {...props} />;
+//   }
+//   return <Table.Cell {...props} />;
+// };
 
 class GridData extends React.PureComponent {
   constructor(props) {
@@ -132,7 +132,7 @@ class GridData extends React.PureComponent {
       { columnName: "indlæst dato", width: 120 }
     ];
 
-    const { sorting, statusColumns, grouping, pcols } = this.state;
+    const { statusColumns } = this.state;
     const pc = this.state.pcols;
     console.log(pc);
     const rows = this.props.data.map((feature, index) => {

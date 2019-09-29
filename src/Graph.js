@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Paper from "@material-ui/core/Paper";
-import { VictoryBar, VictoryChart, Bar } from "victory";
+import { VictoryBar, VictoryChart, Bar, VictoryTheme } from "victory";
 
 const getSummaryData = dat => {
   let data = dat.map(feature => feature.properties);
@@ -18,40 +18,40 @@ const getSummaryData = dat => {
   ];
 };
 
-const getSummaryPerCategory = data => {
-  let _data = data.map(feature => feature.properties);
-  let stats = {
-    fraflytter: {},
-    tilflytter: {},
-    ophoert: {},
-    nystartet: {}
-  };
-  let summary = {
-    fraflytter: _data.filter(x => x.status === "Fraflytter"),
-    tilflytter: _data.filter(x => x.status === "Tilflytter"),
-    ophoert: _data.filter(x => x.status === "Ophørt"),
-    nystartet: _data.filter(x => x.status === "Nystartet")
-  };
-  for (let key in summary) {
-    let elem = summary[key];
-    elem.forEach(category => {
-      // console.log('category name =>', category);
-      let k = category.hovedbranche;
-      if (k in stats[key]) {
-        stats[key][k] = stats[key][k] + 1;
-      } else {
-        stats[key][k] = 1;
-      }
-    });
-  }
-  return stats;
-};
+// const getSummaryPerCategory = data => {
+//   let _data = data.map(feature => feature.properties);
+//   let stats = {
+//     fraflytter: {},
+//     tilflytter: {},
+//     ophoert: {},
+//     nystartet: {}
+//   };
+//   let summary = {
+//     fraflytter: _data.filter(x => x.status === "Fraflytter"),
+//     tilflytter: _data.filter(x => x.status === "Tilflytter"),
+//     ophoert: _data.filter(x => x.status === "Ophørt"),
+//     nystartet: _data.filter(x => x.status === "Nystartet")
+//   };
+//   for (let key in summary) {
+//     let elem = summary[key];
+//     elem.forEach(category => {
+//       // console.log('category name =>', category);
+//       let k = category.hovedbranche;
+//       if (k in stats[key]) {
+//         stats[key][k] = stats[key][k] + 1;
+//       } else {
+//         stats[key][k] = 1;
+//       }
+//     });
+//   }
+//   return stats;
+// };
+/*
 const getBrancheData = data => {
   let _data = data.map(feature => feature.properties);
   let stats = {};
   _data.forEach(element => {
     let key = element.hovedbranche;
-    //(key in stats) ? stats[key] = stats[key] + 1 : stats[key] = 0;
     if (key in stats) {
       stats[key] = stats[key] + 1;
     } else {
@@ -60,7 +60,7 @@ const getBrancheData = data => {
   });
   return stats;
 };
-
+*/
 class GraphData extends React.Component {
   constructor() {
     super();
@@ -85,16 +85,18 @@ class GraphData extends React.Component {
     };
 
     let catData = getSummaryData(this.props.data);
-    let sumData = getSummaryPerCategory(this.props.data);
+    //let sumData = getSummaryPerCategory(this.props.data);
 
     return (
       <div>
         <Paper style={{ height: "600px" }}>
           <VictoryChart
-            height={400}
-            width={400}
-            domainPadding={{ x: 50, y: [0, 20] }}
-            scale={{ x: "time" }}
+            height={200}
+            width={200}
+            // domainPadding={{ x: 50, y: [0, 20] }}
+            theme={VictoryTheme.material}
+            domainPadding={10}
+            // scale={{ x: "time" }}
           >
             <VictoryBar
               dataComponent={<Bar events={{ onMouseOver: handleMouseOver }} />}
@@ -109,7 +111,7 @@ class GraphData extends React.Component {
                 }
               }}
               data={catData}
-              labels={d => d.y}
+              // labels={d => d.y}
             />
           </VictoryChart>
         </Paper>

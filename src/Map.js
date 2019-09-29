@@ -1,6 +1,6 @@
 import React from "react";
 import L from "leaflet";
-import axios from "axios";
+//import axios from "axios";
 
 const style = {
   width: "100%",
@@ -21,7 +21,7 @@ class MapData extends React.Component {
   renderMap() {
     map = L.map("map", {
       center: [55.2, 12.2],
-      zoom: 7,
+      zoom: 9,
       layers: [
         L.tileLayer(
           "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
@@ -44,16 +44,12 @@ class MapData extends React.Component {
         switch (status) {
           case "Tilflytter":
             return "img/t.png";
-            break;
           case "Fraflytter":
             return "img/f.png";
-            break;
           case "Nystartet":
             return "img/n.png";
-            break;
           case "Ophørt":
             return "img/o.png";
-            break;
           default:
             break;
         }
@@ -67,7 +63,7 @@ class MapData extends React.Component {
       });
     };
 
-    if (geojsonLayer != undefined) {
+    if (geojsonLayer !== undefined) {
       map.removeLayer(geojsonLayer);
     }
 
@@ -104,7 +100,7 @@ class MapData extends React.Component {
 
   componentDidUpdate() {
     console.log("componentdidupdate");
-    const { data } = this.props;
+    //const { data } = this.props;
     //this.renderFeatures(data);
     if (this.props.data.length > 0) {
       this.renderFeatures(this.props.data);
@@ -121,16 +117,12 @@ class MapData extends React.Component {
         switch (status) {
           case "Tilflytter":
             return "img/t.png";
-            break;
           case "Fraflytter":
             return "img/f.png";
-            break;
           case "Nystartet":
             return "img/n.png";
-            break;
           case "Ophørt":
             return "img/o.png";
-            break;
           default:
             break;
         }
@@ -144,7 +136,7 @@ class MapData extends React.Component {
       });
     };
     //check if there is markers on the map and remove
-    if (geojsonLayer != undefined) {
+    if (geojsonLayer !== undefined) {
       map.removeLayer(geojsonLayer);
     }
 
