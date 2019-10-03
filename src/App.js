@@ -36,6 +36,7 @@ import './App.css';
 import classnames from 'classnames';
 import ReactExport from 'react-data-export';
 import jQuery from 'jquery';
+import {navigate} from '@reach/router';
 
 moment.locale('da');
 
@@ -100,7 +101,7 @@ class App extends Component{
             data: [],
             filteredData: [],
             kommuner: [],
-            komkode:'165',
+            komkode: this.props.komnr, //'165',
             Fraflytter: true,
             Tilflytter: true,
             Ophørt: true,
@@ -170,7 +171,7 @@ class App extends Component{
         this.setState((preveState) => ({csvData: [], loading: true}));
         let that = this;
         let dataUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad("  
-                    + komkode + ",'" + startDate + "','" + endDate + "')&srs=4326";
+                    + komkode + ",'2019-08-01','2019-08-31')&srs=4326";
         jQuery.ajax({
             url: dataUrl,
             type: 'GET',
@@ -218,6 +219,7 @@ class App extends Component{
         let {startDate, endDate} = this.state;
         this.setState((prevState) => ({komkode : event.target.value}));
         this.getData(kom, startDate, endDate);
+        navigate(`/${kom}`);
     }
 
     componentDidMount(){
@@ -231,7 +233,9 @@ class App extends Component{
     }
 
     handleChange(event, value){
-        this.setState({ value });
+       this.setState({ value });
+       //console.log('navigating to ' + value);
+       //navigate(`/${value}`)
     };
 
     handleStart(date){ 
@@ -253,6 +257,7 @@ class App extends Component{
     }
   
     render(){
+        console.log("props from router => ",this.props.komnr);
         const { value, startDate, endDate, kommuner, komkode } = this.state;
         const locale = 'da';
        // const _csvData = this.getCsv();

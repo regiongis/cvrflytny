@@ -93,9 +93,9 @@ class GraphData extends React.Component {
           <VictoryChart
             height={200}
             width={200}
-            // domainPadding={{ x: 50, y: [0, 20] }}
+            domainPadding={{ x: 50, y: [0, 20] }}
             theme={VictoryTheme.material}
-            domainPadding={10}
+            //domainPadding={10}
             // scale={{ x: "time" }}
           >
             <VictoryBar
@@ -111,7 +111,7 @@ class GraphData extends React.Component {
                 }
               }}
               data={catData}
-              // labels={d => d.y}
+              labels={d => d.y}
             />
           </VictoryChart>
         </Paper>
