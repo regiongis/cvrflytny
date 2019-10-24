@@ -49,6 +49,22 @@ class MapData extends React.Component {
         toposkaermkortwmts
       ]
     });
+
+    var legend = L.control({ position: "bottomleft" });
+    legend.onAdd = function(map) {
+      var div = L.DomUtil.create("div", "legend");
+      div.innerHTML += "<h4>Signaturforklaring</h4>";
+      div.innerHTML +=
+        '<i style="background:#0020d7"></i><span>NyStartet</span><br>';
+      div.innerHTML +=
+        '<i style="background:#d79700"></i><span>Fraflyttet</span><br>';
+      div.innerHTML +=
+        '<i style="background:#298b30"></i><span>Tilflyttet</span><br>';
+      div.innerHTML +=
+        '<i style="background:#c10a0a"></i><span>Ophørt</span><br>';
+      return div;
+    };
+    legend.addTo(map);
   }
   renderFeatures(data) {
     //console.log('renderfeatures'); console.log(data);
