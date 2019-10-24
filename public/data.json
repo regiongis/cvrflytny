@@ -1,0 +1,3938 @@
+{
+  "success": true,
+  "forStore": [
+    {
+      "name": "status",
+      "type": "text"
+    },
+    {
+      "name": "cvr-nummer",
+      "type": "bigint"
+    },
+    {
+      "name": "p-nummer",
+      "type": "bigint"
+    },
+    {
+      "name": "hovedbranche",
+      "type": "character varying"
+    },
+    {
+      "name": "navn",
+      "type": "character varying"
+    },
+    {
+      "name": "fuldt ansvarlige deltagere",
+      "type": "character varying"
+    },
+    {
+      "name": "kommunekode",
+      "type": "smallint"
+    },
+    {
+      "name": "vejnavn",
+      "type": "character varying"
+    },
+    {
+      "name": "husnummer",
+      "type": "bigint"
+    },
+    {
+      "name": "postnummer",
+      "type": "bigint"
+    },
+    {
+      "name": "postdistrikt",
+      "type": "character varying"
+    },
+    {
+      "name": "emailadresse",
+      "type": "character varying"
+    },
+    {
+      "name": "startdato",
+      "type": "timestamp without time zone"
+    },
+    {
+      "name": "geom",
+      "type": "geometry"
+    },
+    {
+      "name": "indl\u00e6st dato",
+      "type": "date"
+    }
+  ],
+  "forGrid": [
+    {
+      "header": "status",
+      "dataIndex": "status",
+      "type": "text",
+      "typeObj": null
+    },
+    {
+      "header": "cvr-nummer",
+      "dataIndex": "cvr-nummer",
+      "type": "bigint",
+      "typeObj": null
+    },
+    {
+      "header": "p-nummer",
+      "dataIndex": "p-nummer",
+      "type": "bigint",
+      "typeObj": null
+    },
+    {
+      "header": "hovedbranche",
+      "dataIndex": "hovedbranche",
+      "type": "character varying",
+      "typeObj": null
+    },
+    {
+      "header": "navn",
+      "dataIndex": "navn",
+      "type": "character varying",
+      "typeObj": null
+    },
+    {
+      "header": "fuldt ansvarlige deltagere",
+      "dataIndex": "fuldt ansvarlige deltagere",
+      "type": "character varying",
+      "typeObj": null
+    },
+    {
+      "header": "kommunekode",
+      "dataIndex": "kommunekode",
+      "type": "smallint",
+      "typeObj": null
+    },
+    {
+      "header": "vejnavn",
+      "dataIndex": "vejnavn",
+      "type": "character varying",
+      "typeObj": null
+    },
+    {
+      "header": "husnummer",
+      "dataIndex": "husnummer",
+      "type": "bigint",
+      "typeObj": null
+    },
+    {
+      "header": "postnummer",
+      "dataIndex": "postnummer",
+      "type": "bigint",
+      "typeObj": null
+    },
+    {
+      "header": "postdistrikt",
+      "dataIndex": "postdistrikt",
+      "type": "character varying",
+      "typeObj": null
+    },
+    {
+      "header": "emailadresse",
+      "dataIndex": "emailadresse",
+      "type": "character varying",
+      "typeObj": null
+    },
+    {
+      "header": "startdato",
+      "dataIndex": "startdato",
+      "type": "timestamp without time zone",
+      "typeObj": null
+    },
+    {
+      "header": "geom",
+      "dataIndex": "geom",
+      "type": "geometry",
+      "typeObj": null
+    },
+    {
+      "header": "indl\u00e6st dato",
+      "dataIndex": "indl\u00e6st dato",
+      "type": "date",
+      "typeObj": null
+    }
+  ],
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.370765189653, 55.732240555177]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 17061488,
+        "p-nummer": 1024944448,
+        "hovedbranche": "Anden undervisning i.a.n.",
+        "navn": "J\u00f8rn Bang-Andersen",
+        "fuldt ansvarlige deltagere": "\"J\u00f8rn Schlamovitz Bang-Andersen\"",
+        "kommunekode": 151,
+        "vejnavn": "H\u00f8rhaven",
+        "husnummer": 5,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jba@dk-art.dk",
+        "startdato": "2019-08-15 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.501798273924, 55.744007929042]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 17795236,
+        "p-nummer": 1001361332,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "NORDISK HERPETOLOGISK FORENING",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 159,
+        "vejnavn": "Solnavej",
+        "husnummer": 13,
+        "postnummer": 2860,
+        "postdistrikt": "S\u00f8borg",
+        "emailadresse": "formand@nhf.dk",
+        "startdato": "1994-05-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.355486804745, 55.739567539382]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 18267241,
+        "p-nummer": 1024955210,
+        "hovedbranche": "Anden reng\u00f8ring af bygninger og reng\u00f8ring af erhvervslokaler",
+        "navn": "ISBJ\u00d8RNS RENG\u00d8RING v/ Isaac J\u00f8rgensen",
+        "fuldt ansvarlige deltagere": "\"Isaac Lukas Andy J\u00f8rgensen\"",
+        "kommunekode": 151,
+        "vejnavn": "Kattens Kvarter",
+        "husnummer": 28,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "isaacjoerensen@gmail.com",
+        "startdato": "2019-08-19 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.413288971831, 55.719198742297]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 18958147,
+        "p-nummer": 1007994350,
+        "hovedbranche": "Almennyttige boligselskaber",
+        "navn": "Boligorganisationen Lundebjergg\u00e5rd, afd. Ravnsletlund",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lundebjerg",
+        "husnummer": 24,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "1999-01-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.413288971831, 55.719198742297]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 18958147,
+        "p-nummer": 1007994369,
+        "hovedbranche": "Almennyttige boligselskaber",
+        "navn": "Aldeling Lundebjerg",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lundebjerg",
+        "husnummer": 24,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "1999-01-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.337643967729, 55.724195656993]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 21849685,
+        "p-nummer": 1024896494,
+        "hovedbranche": "Sk\u00f8nheds- og hudpleje",
+        "navn": "Nordic treatment",
+        "fuldt ansvarlige deltagere": "\"Helle Vangsgaard\"",
+        "kommunekode": 151,
+        "vejnavn": "Grantofteparken",
+        "husnummer": 696,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Info@nordictreatment.dk",
+        "startdato": "2019-07-26 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.339399307265, 55.727708042832]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 25955013,
+        "p-nummer": 1024839423,
+        "hovedbranche": "Konsulentbistand vedr\u00f8rende informationsteknologi",
+        "navn": "Consensus Compliance",
+        "fuldt ansvarlige deltagere": "\"Michael William Rehn\u00e9 Christiansen\"",
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 243,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "michael@consensuscompliance.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.470144379853, 55.641662340865]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 26035074,
+        "p-nummer": 1008435320,
+        "hovedbranche": "Engroshandel med elektronisk udstyr",
+        "navn": "SCHMERSAL DANMARK A/S",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 167,
+        "vejnavn": "Arnold Nielsens Boulevard",
+        "husnummer": 72,
+        "postnummer": 2650,
+        "postdistrikt": "Hvidovre",
+        "emailadresse": null,
+        "startdato": "2001-04-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.391405340695, 55.730634255557]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 26086736,
+        "p-nummer": 1008497261,
+        "hovedbranche": "Konsulentbistand vedr\u00f8rende informationsteknologi",
+        "navn": "ACANDO DENMARK A/S",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupvang",
+        "husnummer": 4,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2001-06-12 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.392843572004, 55.711376521851]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 26479134,
+        "p-nummer": 1008961103,
+        "hovedbranche": "Investeringsselskaber",
+        "navn": "SEVICA FINANS & INVEST ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Salbyvej",
+        "husnummer": 2,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2002-02-19 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.435892167424, 55.821542809528]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 26725550,
+        "p-nummer": 1009250413,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "ACTURUS ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 230,
+        "vejnavn": "Fures\u00f8parkalle",
+        "husnummer": 39,
+        "postnummer": 3460,
+        "postdistrikt": "Birker\u00f8d",
+        "emailadresse": null,
+        "startdato": "2002-06-18 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.432010349754, 55.834545596976]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 27358403,
+        "p-nummer": 1022814784,
+        "hovedbranche": "Forhandlere af sports- og campingudstyr",
+        "navn": "Superkite",
+        "fuldt ansvarlige deltagere": "\"Carsten Pilsgaard Hansen\"",
+        "kommunekode": 230,
+        "vejnavn": "Trekanten",
+        "husnummer": 16,
+        "postnummer": 3460,
+        "postdistrikt": "Birker\u00f8d",
+        "emailadresse": "Superkite.cph@gmail.com",
+        "startdato": "2017-09-06 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.351119079576, 55.749840262927]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 30253523,
+        "p-nummer": 1013041373,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Shindenkan Danmark",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Fuglehavevej",
+        "husnummer": 76,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jens@iversen3.dk",
+        "startdato": "2007-02-19 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.391405340695, 55.730634255557]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 30275748,
+        "p-nummer": 1016793759,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "ACANDO DENMARK HOLDING A/S",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupvang",
+        "husnummer": 4,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2010-04-14 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.412389058327, 55.715146447565]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 30360680,
+        "p-nummer": 1013131704,
+        "hovedbranche": "Anl\u00e6g af ledningsnet til v\u00e6sker",
+        "navn": "ERIK LARSEN KLOAK ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "B\u00f8gevej",
+        "husnummer": 4,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "erik@eriklarsen.dk",
+        "startdato": "2007-03-19 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.359253149712, 55.714717597505]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 31555132,
+        "p-nummer": 1014640653,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Klubben Lis",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Hedeparken",
+        "husnummer": 167,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "kurt.fritze@ab-bolignet.dk",
+        "startdato": "2008-08-12 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.383221524721, 55.732549653046]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 31622565,
+        "p-nummer": 1014637563,
+        "hovedbranche": "Bogf\u00f8ring og revision: skatter\u00e5dgivning",
+        "navn": "Lyngen Revisor statsautoriseret revisionsanpartsselskab",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Borupvang",
+        "husnummer": 3,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2008-08-11 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.368218214935, 55.742101165152]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 31719828,
+        "p-nummer": 1001679109,
+        "hovedbranche": "Fris\u00f8rsaloner",
+        "navn": "MINISALONEN V/WINNIE CHRISTENSEN",
+        "fuldt ansvarlige deltagere": "\"Winnie Lillian Christensen\",\"Winnie Lillian Christensen        \"",
+        "kommunekode": 151,
+        "vejnavn": "Ludvig Holsteins Alle",
+        "husnummer": 121,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "1969-10-01 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.340658982718, 55.755394844725]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 31730678,
+        "p-nummer": 1014864616,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Tyrkisk Kulturforening",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Jonstrupvej",
+        "husnummer": 246,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Tyrkisk.kif@hotmail.com",
+        "startdato": "2008-11-10 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.373929700458, 55.810681955405]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 32119352,
+        "p-nummer": 1015289372,
+        "hovedbranche": "Kombinerede administrationsserviceydelser",
+        "navn": "Personalepolitikken v/Camilla Rimmer",
+        "fuldt ansvarlige deltagere": "\"Camilla Rimmer\"",
+        "kommunekode": 190,
+        "vejnavn": "O B Muusvej",
+        "husnummer": 5,
+        "postnummer": 3520,
+        "postdistrikt": "Farum",
+        "emailadresse": "kontakt@jpersonalepolitikken.dk",
+        "startdato": "2009-07-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.388857351858, 55.736134364236]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 32126758,
+        "p-nummer": 1024945444,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Forsvarsministeriets Personalestyrelse Personaleforening \u00d8st",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautruph\u00f8j",
+        "husnummer": 8,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "FPS-VR-KOOR@mil.dk",
+        "startdato": "2019-08-15 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.387293515144, 55.721970348149]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 32229891,
+        "p-nummer": 1015438343,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Kurdisk Kvindeforening",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lilletoften",
+        "husnummer": 103,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "Bayannoori@hotmail.com",
+        "startdato": "2009-08-10 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.424532120483, 55.716015822532]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 32563600,
+        "p-nummer": 1015643516,
+        "hovedbranche": "Konsulentbistand vedr\u00f8rende informationsteknologi",
+        "navn": "4 DIMENSIONS A/S",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Mileparken",
+        "husnummer": 22,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2009-11-10 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.418391887428, 55.715082208172]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 32660533,
+        "p-nummer": 1024958783,
+        "hovedbranche": "Indsamling af ikke-farligt affald",
+        "navn": "Urbaser Skovlunde",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Meterbuen",
+        "husnummer": 3,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.354955825145, 55.713077344921]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 32670482,
+        "p-nummer": 1015765956,
+        "hovedbranche": "Reparation og vedligeholdelse af skibe og b\u00e5de",
+        "navn": "TROLLING CENTRUM ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "V\u00e5rbuen",
+        "husnummer": 16,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2010-01-11 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.412609829842, 55.753224497849]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 32872557,
+        "p-nummer": 1016062452,
+        "hovedbranche": "Praktiserende speciall\u00e6ger",
+        "navn": "Hudklinikken i Ballerup v/Elisabeth Ammitzb\u00f8ll",
+        "fuldt ansvarlige deltagere": "\"Elisabeth Ammitzb\u00f8ll\"",
+        "kommunekode": 190,
+        "vejnavn": "Tibbevangen",
+        "husnummer": 88,
+        "postnummer": 3500,
+        "postdistrikt": "V\u00e6rl\u00f8se",
+        "emailadresse": "tider@dermaoptima.dk",
+        "startdato": "2010-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.381373239348, 55.702772668749]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 32995063,
+        "p-nummer": 1024926296,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "OF Harrestrup",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Frejavej",
+        "husnummer": 44,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "formand@ofharrestrup.dk",
+        "startdato": "2019-08-07 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.335274961626, 55.753922870189]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33129130,
+        "p-nummer": 1016364912,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Ballerup Multikulturelle Forening",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "M\u00e5l\u00f8vg\u00e5rdsvej",
+        "husnummer": 64,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "farjam.davani@gmail.com",
+        "startdato": "2010-10-09 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.366367548735, 55.723486130647]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33211686,
+        "p-nummer": 1016424966,
+        "hovedbranche": "Pizzeriaer, grillbarer, isbarer mv.",
+        "navn": "Danish Dip Factory",
+        "fuldt ansvarlige deltagere": "\"Henrik Birk Jensen\"",
+        "kommunekode": 151,
+        "vejnavn": "Kornv\u00e6nget",
+        "husnummer": 136,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "rocknrisotto@gmail.com",
+        "startdato": "2010-06-28 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.318928159249, 55.744355476735]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 33673469,
+        "p-nummer": 1016950986,
+        "hovedbranche": "Malerforretninger",
+        "navn": "K9 Maler Service v/Kenneth Nielsen",
+        "fuldt ansvarlige deltagere": "\"Kenneth Nielsen\"",
+        "kommunekode": 151,
+        "vejnavn": "B\u00e6kholmen",
+        "husnummer": 40,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "kn@k9malerservice.dk",
+        "startdato": "2011-06-13 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.342553129671, 55.741811409583]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33790139,
+        "p-nummer": 1017026654,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Vejlavet p\u00e5 Absalonsvej",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Ballerup Byvej",
+        "husnummer": 314,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jacob@elk-partners.dk",
+        "startdato": "2011-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.351119079576, 55.749840262927]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33794762,
+        "p-nummer": 1017034142,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Jokokan Veks\u00f8 Karateskole",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Fuglehavevej",
+        "husnummer": 76,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jensnybye@gmail.com",
+        "startdato": "2011-08-03 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.359702700386, 55.729702108028]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 33798962,
+        "p-nummer": 1024994674,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Personaleforeningen ved Ballerup Kommunes Biblioteker",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Baneg\u00e5rdspladsen",
+        "husnummer": 1,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "sbo@gmail.com",
+        "startdato": "2019-08-29 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.359702700386, 55.729702108028]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33798962,
+        "p-nummer": 1017040916,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Personaleforeningen ved Ballerup Kommunes Biblioteker",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Baneg\u00e5rdspladsen",
+        "husnummer": 1,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "ikh@gmail.com",
+        "startdato": "2011-08-08 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.400407863552, 55.724806318945]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33803818,
+        "p-nummer": 1017050504,
+        "hovedbranche": "Anden undervisning i.a.n.",
+        "navn": "Mindfulsoul v/Conny Dahl Hjars\u00f8",
+        "fuldt ansvarlige deltagere": "\"Conny Dahl Hjars\u00f8\"",
+        "kommunekode": 151,
+        "vejnavn": "Dagmarvej",
+        "husnummer": 19,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "mindfulsoul@paradis.dk",
+        "startdato": "2011-05-12 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.386847342608, 55.738845454391]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33808402,
+        "p-nummer": 1017055182,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Kommunalt Leverand\u00f8rForum Danmark",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupbjerg",
+        "husnummer": 9,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Christian.Torp@dk.fujitsu.com",
+        "startdato": "2011-08-15 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.369488021685, 55.746908786192]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33813872,
+        "p-nummer": 1017065056,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Hareskovens Rideklub",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "MacDonald Alle",
+        "husnummer": 26,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "rene.r.pape@gmail.com",
+        "startdato": "2011-08-18 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.309755610717, 55.749782026864]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 33841027,
+        "p-nummer": 1017112003,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "g/f Bj\u00f8rnek\u00e6r",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Bj\u00f8rnek\u00e6r",
+        "husnummer": 19,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "susanheltandersen@gmail.com",
+        "startdato": "2011-09-08 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.325034084352, 55.752639488797]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 34496587,
+        "p-nummer": 1017699748,
+        "hovedbranche": "Teater- og koncertvirksomhed",
+        "navn": "Lys & co.",
+        "fuldt ansvarlige deltagere": "\"Peter Verngreen Clausen\"",
+        "kommunekode": 151,
+        "vejnavn": "K\u00e6rlodden",
+        "husnummer": 50,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "Peter.clausen@hotmail.com",
+        "startdato": "2012-05-07 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.351119079576, 55.749840262927]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 34542368,
+        "p-nummer": 1024953625,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Jokokan Fures\u00f8 Karateskole",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Fuglehavevej",
+        "husnummer": 76,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jens@iversen3.dk",
+        "startdato": "2019-08-19 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.362117962973, 55.726451617716]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 34556997,
+        "p-nummer": 1017889385,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Ballerup Pensionistforening af 1940",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Rugv\u00e6nget",
+        "husnummer": 12,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Kirsten2@klbn.dk",
+        "startdato": "2012-08-29 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.383221524721, 55.732549653046]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 34584532,
+        "p-nummer": 1017701750,
+        "hovedbranche": "Uoplyst",
+        "navn": "CORPORATE VIDEO GROUP ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Borupvang",
+        "husnummer": 3,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2012-05-21 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.380464515529, 55.730684992964]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 34600147,
+        "p-nummer": 1024906538,
+        "hovedbranche": "Event catering",
+        "navn": "Eat event Aps Ballerup",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Borupvang",
+        "husnummer": 5,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Info@eatevent.dk",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.399654809155, 55.738804260225]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 35108572,
+        "p-nummer": 1018449982,
+        "hovedbranche": "Andre liberale, videnskabelige og tekniske tjenesteydelser i.a.n.",
+        "navn": "AutoWise 2013",
+        "fuldt ansvarlige deltagere": "\"S\u00f8ren Jepsen\"",
+        "kommunekode": 151,
+        "vejnavn": "Klausdalsbrovej",
+        "husnummer": 601,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "swj@autowise.dk",
+        "startdato": "2013-05-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.390250310864, 55.713488113329]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 35184775,
+        "p-nummer": 1024945819,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "FOA social-og sundhedsklub p\u00e5 Rigshospitalet",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Kl\u00f8vertoften",
+        "husnummer": 63,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "edda.lystrup@regionh.dk",
+        "startdato": "2019-08-14 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.39669962239, 55.731520015583]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 35189297,
+        "p-nummer": 1024980193,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "IHK GYM",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupvang",
+        "husnummer": 15,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Martinhofman83@gmail.com",
+        "startdato": "2019-08-26 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.39669962239, 55.731520015583]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35189297,
+        "p-nummer": 1018661558,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "IHK GYM",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupvang",
+        "husnummer": 15,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "ihkgymfit@gmail.com",
+        "startdato": "2013-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.336526462427, 55.727206267938]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35190740,
+        "p-nummer": 1018669370,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Tyrkisk KIF",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 275,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "aliata1988@gmail.com",
+        "startdato": "2013-08-07 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.382606308866, 55.752921661872]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35192506,
+        "p-nummer": 1018682555,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Jokokan Greve Strand",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Ved Skovg\u00e6rdet",
+        "husnummer": 52,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "kimu@bjarkmann.dk",
+        "startdato": "2013-08-13 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.350287199777, 55.718032620833]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35195343,
+        "p-nummer": 1018700634,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "2. Absalon Tropssamfund",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "H\u00f8stbuen",
+        "husnummer": 31,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "margit.morthorst@gmail.com",
+        "startdato": "2013-08-21 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.3491775567, 55.729650115109]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 35342524,
+        "p-nummer": 1018815679,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Copenhagen Youth Network",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 114,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Halmatf87@hotmail.com",
+        "startdato": "2013-10-10 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.405458649335, 55.730493872964]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35495304,
+        "p-nummer": 1018974459,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Foreningen Sumpen",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "S\u00f8moseparken",
+        "husnummer": 80,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "sumpenlgk@gmail.com",
+        "startdato": "2013-12-16 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.423264896847, 55.711187558643]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35515496,
+        "p-nummer": 1018821547,
+        "hovedbranche": "Fremstilling af k\u00f8le- og ventilationsanl\u00e6g (til industriel brug)",
+        "navn": "FLAMCO DANMARK, FILIAL AF FLAMCO B.V., HOLLAND",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Tonsbakken",
+        "husnummer": 16,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2013-09-12 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.387223873447, 55.740879456097]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 35691731,
+        "p-nummer": 1024962187,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Teater & Musikforening",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupbjerg",
+        "husnummer": 10,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "ltveg@nets.eu",
+        "startdato": "2019-08-21 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.340532972262, 55.756385475366]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35916393,
+        "p-nummer": 1019601346,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "G/F Jonstrupkrogen",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Studekrogen",
+        "husnummer": 6,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "aliceto@mail.dk",
+        "startdato": "2014-08-07 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.356344410953, 55.72813336356]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 35972048,
+        "p-nummer": 1019628082,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "grantoften petanque klub",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 11,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "lidsheim@comexnet.dk",
+        "startdato": "2014-08-19 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.402251416737, 55.720883989369]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 36342439,
+        "p-nummer": 1024373017,
+        "hovedbranche": "Undervisning inden for sport og fritid",
+        "navn": "West Real Life Fitness",
+        "fuldt ansvarlige deltagere": "\"Dan Robin Westhausen\"",
+        "kommunekode": 151,
+        "vejnavn": "Blokhaven",
+        "husnummer": 20,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "w.r.l.f.trainer@gmail.com",
+        "startdato": "2019-02-04 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.420902476153, 55.720952373212]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 36475730,
+        "p-nummer": 1020013113,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "D LEASING IVS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Meterbuen",
+        "husnummer": 45,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2014-12-29 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.8892475152573, 57.011764273476]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 36538619,
+        "p-nummer": 1020144420,
+        "hovedbranche": "Autoreparationsv\u00e6rksteder mv.",
+        "navn": "PrimaCars ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 851,
+        "vejnavn": "Hobrovej",
+        "husnummer": 372,
+        "postnummer": 9200,
+        "postdistrikt": "Aalborg SV",
+        "emailadresse": null,
+        "startdato": "2015-02-11 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.408162023393, 55.719874342576]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 36636025,
+        "p-nummer": 1024985772,
+        "hovedbranche": "Murere",
+        "navn": "Badentreprisen",
+        "fuldt ansvarlige deltagere": "\"Diana Klinder\",\"Diana Klinder Pind\"",
+        "kommunekode": 151,
+        "vejnavn": "Lundebjergg\u00e5rdsvej",
+        "husnummer": 172,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "info@badevaerelset.dk",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.346263024508, 55.739114191999]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 36781181,
+        "p-nummer": 1020613250,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Gadekirkenkbh",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Jungtoften",
+        "husnummer": 6,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "bogomona@ofir.dk",
+        "startdato": "2015-08-04 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.358532775665, 55.728795920131]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 36784539,
+        "p-nummer": 1020638431,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "F\u00f8texpersonaleforeningen Sofus",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Banetoften",
+        "husnummer": 2,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "mnwiinblad@hotmail.com",
+        "startdato": "2015-08-14 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.399654809155, 55.738804260225]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 36920025,
+        "p-nummer": 1020478434,
+        "hovedbranche": "Computerprogrammering",
+        "navn": "Activity Stream ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Klausdalsbrovej",
+        "husnummer": 601,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2015-06-11 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.5606883995773, 56.153800301531]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 37009482,
+        "p-nummer": 1024625636,
+        "hovedbranche": "Konsulentbistand vedr\u00f8rende informationsteknologi",
+        "navn": "Avalon Information System AB",
+        "fuldt ansvarlige deltagere": "\"Avalon Information System AB\"",
+        "kommunekode": 740,
+        "vejnavn": "Vejls\u00f8vej",
+        "husnummer": 51,
+        "postnummer": 8600,
+        "postdistrikt": "Silkeborg",
+        "emailadresse": "Sabina.johansson@cimon.se",
+        "startdato": "2019-05-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.336684143365, 55.754185952885]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37060852,
+        "p-nummer": 1024312891,
+        "hovedbranche": "Andre tjenesteydelser i forbindelse med transport",
+        "navn": "Ilyas & Co.",
+        "fuldt ansvarlige deltagere": "\"Ausman Ilyas Mohammad\"",
+        "kommunekode": 151,
+        "vejnavn": "Knastebakken",
+        "husnummer": 293,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "usi_2003@hotmail.com",
+        "startdato": "2019-01-02 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [11.218819917216, 55.305906139587]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 37446408,
+        "p-nummer": 1023852361,
+        "hovedbranche": "Selvst\u00e6ndigt ud\u00f8vende scenekunstnere",
+        "navn": "Signe S\u00f8rensen",
+        "fuldt ansvarlige deltagere": "\"Signe Dahlenborg S\u00f8rensen\"",
+        "kommunekode": 330,
+        "vejnavn": "Lille Egedevej",
+        "husnummer": 55,
+        "postnummer": 4220,
+        "postdistrikt": "Kors\u00f8r",
+        "emailadresse": "signe_soerensen@live.com",
+        "startdato": "2018-08-08 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.401950728615, 55.712092592297]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 37581240,
+        "p-nummer": 1021299908,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Radikal Ungdom Ballerup-Egedal-Egnen",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Skovbyvej",
+        "husnummer": 17,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "william.viksoe@live.dk",
+        "startdato": "2016-04-04 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.349330613404, 55.717953361227]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 37586374,
+        "p-nummer": 1021306327,
+        "hovedbranche": "Cafe\u00e9r, v\u00e6rtshuse, diskoteker mv.",
+        "navn": "Alwadi ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "H\u00f8stbuen",
+        "husnummer": 11,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2016-03-31 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.377948112107, 55.722642184808]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 37783315,
+        "p-nummer": 1024835150,
+        "hovedbranche": "Byggemarkeder og v\u00e6rkt\u00f8jsmagasiner",
+        "navn": "Harald Nyborg A/S",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Tempovej",
+        "husnummer": 23,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "harald.ballerup@harald-nyborg.dk",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.379743929839, 55.723670316661]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37834084,
+        "p-nummer": 1021549394,
+        "hovedbranche": "Reparation af andre varer til personligt brug og husholdningsbrug",
+        "navn": "Selskabet af 12. september 2017 ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Tempovej",
+        "husnummer": 16,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2016-06-29 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.360920730708, 55.714238114108]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37900265,
+        "p-nummer": 1021626194,
+        "hovedbranche": "Vejgodstransport",
+        "navn": "Mobilto",
+        "fuldt ansvarlige deltagere": "\"Hussein Ghassan Daher\"",
+        "kommunekode": 151,
+        "vejnavn": "Magleparken",
+        "husnummer": 174,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "hussein-for-livet@hotmail.com",
+        "startdato": "2016-07-31 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.351119079576, 55.749840262927]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37916013,
+        "p-nummer": 1021644400,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Shindenkan Danmark",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Fuglehavevej",
+        "husnummer": 76,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jens@iversen3.dk",
+        "startdato": "2016-08-08 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.331705748942, 55.756936965999]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 37917982,
+        "p-nummer": 1024954052,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Icelandic Sheepdog International Cooperation - ISIC",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "M\u00f8llemosen",
+        "husnummer": 131,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "isic@icelanddog.org",
+        "startdato": "2019-08-19 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.331705748942, 55.756936965999]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37917982,
+        "p-nummer": 1021646225,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Icelandic Sheepdog International Cooperation - ISIC",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "M\u00f8llemosen",
+        "husnummer": 131,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "isic@icelanddog.org",
+        "startdato": "2016-08-09 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.355279555599, 55.72487897342]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37927155,
+        "p-nummer": 1021658436,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Ejerforeningen Hold-An Vej 94-96",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Hold-An vej",
+        "husnummer": 94,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2016-08-12 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.368458817941, 55.719142625651]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37939226,
+        "p-nummer": 1021671572,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Ballerup Petanque Klub",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Ballerup idr\u00e6tsby",
+        "husnummer": 34,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "fam.mt@mail.tele.dk",
+        "startdato": "2016-08-18 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.331945352076, 55.747178680923]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37945242,
+        "p-nummer": 1021677716,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "M\u00e5l\u00f8v Skiklub",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Snarestr\u00e6de",
+        "husnummer": 6,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jannikboecherlassen@gmail.com",
+        "startdato": "2016-08-21 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.348746356061, 55.720088030426]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 37959332,
+        "p-nummer": 1021694998,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "HBC88",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "bueparken",
+        "husnummer": 34,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "slindholdt@youmail.dk",
+        "startdato": "2016-08-26 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.389937801226, 55.734778968878]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 38042181,
+        "p-nummer": 1021788089,
+        "hovedbranche": "Engroshandel med andre maskiner og andet udstyr",
+        "navn": "ProZyme Europe ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautruph\u00f8j",
+        "husnummer": 1,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2016-09-14 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.391164492471, 55.733203645483]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 38067451,
+        "p-nummer": 1022901237,
+        "hovedbranche": "Anden udgivelse af software",
+        "navn": "Schneider Electric Software GB Denmark branch, filial af Schneider Electric Software GB limited, England",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupvang",
+        "husnummer": 1,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2017-08-31 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.389085997284, 55.967827445804]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 38185020,
+        "p-nummer": 1021932384,
+        "hovedbranche": "Fremstilling af h\u00e5ndv\u00e6rkt\u00f8j",
+        "navn": "SAURI",
+        "fuldt ansvarlige deltagere": "\"Mark Rolf Sauri Ehrenreich\"",
+        "kommunekode": 210,
+        "vejnavn": "Kratbjerg",
+        "husnummer": 204,
+        "postnummer": 3480,
+        "postdistrikt": "Fredensborg",
+        "emailadresse": "info@sauri.dk",
+        "startdato": "2016-11-16 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.373192589328, 55.749126276708]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 38195050,
+        "p-nummer": 1021959703,
+        "hovedbranche": "Sundhedsv\u00e6sen i \u00f8vrigt i.a.n.",
+        "navn": "OI",
+        "fuldt ansvarlige deltagere": "\"Ren\u00e9 Kristian Jeppesen\"",
+        "kommunekode": 151,
+        "vejnavn": "Egebjergtoften",
+        "husnummer": 193,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jeppesenrene@yahoo.dk",
+        "startdato": "2016-11-19 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.532334761987, 55.70604224169]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 38347128,
+        "p-nummer": 1022111988,
+        "hovedbranche": "Fastnetbaseret telekommunikation",
+        "navn": "HE Consult",
+        "fuldt ansvarlige deltagere": "\"Hassan Essabar\"",
+        "kommunekode": 101,
+        "vejnavn": "Frederiksborgvej",
+        "husnummer": 50,
+        "postnummer": 2400,
+        "postdistrikt": "K\u00f8benhavn NV",
+        "emailadresse": "hasess@outlook.dk",
+        "startdato": "2017-02-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.405739835144, 55.720691819565]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 38403648,
+        "p-nummer": 1022174262,
+        "hovedbranche": "Gennemf\u00f8relse af byggeprojekter",
+        "navn": "SEB Entreprise ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lundebjergg\u00e5rdsvej",
+        "husnummer": 78,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2017-02-08 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.389937801226, 55.734778968878]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 38558285,
+        "p-nummer": 1022350087,
+        "hovedbranche": "Virksomhedsr\u00e5dgivning og anden r\u00e5dgivning om driftsledelse",
+        "navn": "T\u00c6NDT ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautruph\u00f8j",
+        "husnummer": 1,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2017-04-07 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.352765506235, 55.718551320895]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 38622269,
+        "p-nummer": 1022428574,
+        "hovedbranche": "Computerprogrammering",
+        "navn": "LT Software",
+        "fuldt ansvarlige deltagere": "\"Lukasz Tomasz Skomial\"",
+        "kommunekode": 151,
+        "vejnavn": "H\u00f8stbuen",
+        "husnummer": 71,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "contact@ltsoft.dk",
+        "startdato": "2017-05-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.341141053598, 55.727587539172]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 38686631,
+        "p-nummer": 1022494801,
+        "hovedbranche": "Computerprogrammering",
+        "navn": "Bidera IVS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 229,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "info@bidera.dk",
+        "startdato": "2017-06-04 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.423264896847, 55.711187558643]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 38710664,
+        "p-nummer": 1024966727,
+        "hovedbranche": "Restauranter",
+        "navn": "Kantinen p\u00e5 Tonsbakken i Skovlunde",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Tonsbakken",
+        "husnummer": 16,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "catering@leaven.dk",
+        "startdato": "2019-08-31 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.408856212613, 55.728200215282]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 38821725,
+        "p-nummer": 1022708232,
+        "hovedbranche": "Sundhedsv\u00e6sen i \u00f8vrigt i.a.n.",
+        "navn": "Tina Roslyng Akupunktur",
+        "fuldt ansvarlige deltagere": "\"Tina Maria Roslyng\"",
+        "kommunekode": 151,
+        "vejnavn": "N\u00f8rreskovvej",
+        "husnummer": 15,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "tinamariaroslyng@gmail.com",
+        "startdato": "2017-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.316463256521, 55.744627897611]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 38843184,
+        "p-nummer": 1022734098,
+        "hovedbranche": "Virksomhedsr\u00e5dgivning og anden r\u00e5dgivning om driftsledelse",
+        "navn": "MH Consult v/Mette Hornb\u00e6k",
+        "fuldt ansvarlige deltagere": "\"Mette Hornb\u00e6k\"",
+        "kommunekode": 151,
+        "vejnavn": "Vaseholmen",
+        "husnummer": 14,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "mette_hornbaek@hotmail.com",
+        "startdato": "2017-10-11 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.51031817814, 55.683555525353]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 38885820,
+        "p-nummer": 1022782238,
+        "hovedbranche": "D\u00e6kservice",
+        "navn": "Hjulster IVS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 147,
+        "vejnavn": "Lauritz S\u00f8rensens Vej",
+        "husnummer": 47,
+        "postnummer": 2000,
+        "postdistrikt": "Frederiksberg",
+        "emailadresse": null,
+        "startdato": "2017-08-23 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.334386647816, 55.721936047904]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 39102420,
+        "p-nummer": 1023047280,
+        "hovedbranche": "Produktion af film og videofilm",
+        "navn": "Falling Leaf",
+        "fuldt ansvarlige deltagere": "\"Kasper \u00d8rtoft Thomsen\"",
+        "kommunekode": 151,
+        "vejnavn": "\u00c5gerupvej",
+        "husnummer": 73,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "kontakt@fallingleaf.dk",
+        "startdato": "2017-01-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.413311638454, 55.718929275114]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 39344521,
+        "p-nummer": 1024528401,
+        "hovedbranche": "Taxik\u00f8rsel",
+        "navn": "Vognmand Abbas Atici",
+        "fuldt ansvarlige deltagere": "\"Abbas Atici\"",
+        "kommunekode": 151,
+        "vejnavn": "Lundebjerg",
+        "husnummer": 22,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "abbasatici@gmail.com",
+        "startdato": "2019-03-20 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.500014794582, 55.965786638935]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 39359545,
+        "p-nummer": 1023377922,
+        "hovedbranche": "Engroshandel med mejeriprodukter, \u00e6g samt spiselige olier og fedtstoffer",
+        "navn": "Swaida IVS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 210,
+        "vejnavn": "Bakkeg\u00e5rdsvej",
+        "husnummer": 207,
+        "postnummer": 3050,
+        "postdistrikt": "Humleb\u00e6k",
+        "emailadresse": "Swaida@outlook.dk",
+        "startdato": "2018-02-22 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.375832269108, 55.727008297193]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 39480670,
+        "p-nummer": 1023516140,
+        "hovedbranche": "Andre hj\u00e6lpetjenester i forbindelse med finansiel formidling",
+        "navn": "Trendpay ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Industriparken",
+        "husnummer": 22,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2018-04-10 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.354962222597, 55.725176080393]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 39507471,
+        "p-nummer": 1023546147,
+        "hovedbranche": "Udf\u00f8relse af gulvbel\u00e6gninger og v\u00e6gbekl\u00e6dning",
+        "navn": "KBH Industri-og designgulve ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Hold-An Vej",
+        "husnummer": 90,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2018-04-10 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.397089742565, 55.720733707926]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 39553880,
+        "p-nummer": 1024886235,
+        "hovedbranche": "Fremstilling af r\u00f8r og hule profiler og tilh\u00f8rende fittings af st\u00e5l",
+        "navn": "K. Ribergaard Smed & Montage",
+        "fuldt ansvarlige deltagere": "\"Klaus Hansen Ribergaard\"",
+        "kommunekode": 151,
+        "vejnavn": "Gl.Skovlundevej",
+        "husnummer": 23,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "smed.montage@gmail.com",
+        "startdato": "2019-08-17 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.387205625542, 55.735632762813]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 39590786,
+        "p-nummer": 1023640704,
+        "hovedbranche": "Anden bygningsinstallationsvirksomhed",
+        "navn": "L&A Complet Instal Srl, filial af L&A Complet Srl, Rum\u00e6nien",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautruph\u00f8j",
+        "husnummer": 5,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "info@mpholding.dk",
+        "startdato": "2018-05-24 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.672741086316, 55.594489437412]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 39655640,
+        "p-nummer": 1023718169,
+        "hovedbranche": "Anden bygningsinstallationsvirksomhed",
+        "navn": "Luftstr\u00f8m Ventilation ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 155,
+        "vejnavn": "Lyb\u00e6kstr\u00e6de",
+        "husnummer": 2,
+        "postnummer": 2791,
+        "postdistrikt": "Drag\u00f8r",
+        "emailadresse": null,
+        "startdato": "2018-06-18 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.418391887428, 55.715082208172]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 39671972,
+        "p-nummer": 1024345390,
+        "hovedbranche": "Indsamling af ikke-farligt affald",
+        "navn": "Nordren Denmark A/S",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Meterbuen",
+        "husnummer": 3,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "gladsaxe@nord-ren.dk",
+        "startdato": "2018-10-01 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.420902476153, 55.720952373212]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 39720639,
+        "p-nummer": 1024915138,
+        "hovedbranche": "VVS- og blikkenslagerforretninger",
+        "navn": "Kunaco Aps",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Meterbuen",
+        "husnummer": 45,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "mail@elinstallatoeren.dk",
+        "startdato": "2019-08-05 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.405333179509, 55.729083315778]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 39761874,
+        "p-nummer": 1023842072,
+        "hovedbranche": "Andre reng\u00f8ringsydelser",
+        "navn": "Raftom",
+        "fuldt ansvarlige deltagere": "\"Rafal Rowinski\"",
+        "kommunekode": 151,
+        "vejnavn": "S\u00f8moseparken",
+        "husnummer": 78,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "rafalrowinski88@gmail.com",
+        "startdato": "2018-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.38976360915, 55.735941383751]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 39816423,
+        "p-nummer": 1025006867,
+        "hovedbranche": "Tekniske skoler og fagskoler",
+        "navn": "FGU Nord Ballerup",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautruph\u00f8j",
+        "husnummer": 6,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Martin@fgunord.dk",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.059274041421, 55.610274119915]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 39876558,
+        "p-nummer": 1023971263,
+        "hovedbranche": "Detailhandel med brugte varer i forretninger",
+        "navn": "Den Gr\u00f8nne Hest IVS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 265,
+        "vejnavn": "Gammelg\u00e5rdsvej",
+        "husnummer": 20,
+        "postnummer": 4000,
+        "postdistrikt": "Roskilde",
+        "emailadresse": "info@skos.dk",
+        "startdato": "2018-09-15 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.543336949846, 55.705557145238]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Fraflytter",
+        "cvr-nummer": 39898136,
+        "p-nummer": 1023995227,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Itai Yavin IVS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 101,
+        "vejnavn": "Tagensvej",
+        "husnummer": 135,
+        "postnummer": 2200,
+        "postdistrikt": "K\u00f8benhavn N",
+        "emailadresse": null,
+        "startdato": "2018-09-28 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.399654809155, 55.738804260225]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 39941945,
+        "p-nummer": 1024048140,
+        "hovedbranche": "Agenturhandel med maskiner, teknisk udstyr, skibe og flyvemaskiner",
+        "navn": "Forsikringsformidler Bjarke Hyllegaard",
+        "fuldt ansvarlige deltagere": "\"Bjarke Hyllegaard Pedersen\"",
+        "kommunekode": 151,
+        "vejnavn": "Klausdalsbrovej",
+        "husnummer": 601,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "kontakt@hyllegaardadvisory.dk",
+        "startdato": "2018-10-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.417103478282, 55.715845306949]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 40046445,
+        "p-nummer": 1024351544,
+        "hovedbranche": "Autoreparationsv\u00e6rksteder mv.",
+        "navn": "Bigleo",
+        "fuldt ansvarlige deltagere": "\"Saso Gorgievski\"",
+        "kommunekode": 151,
+        "vejnavn": "Meterbuen",
+        "husnummer": 9,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "sasgor@hotmail.com",
+        "startdato": "2018-12-01 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.399654809155, 55.738804260225]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40079084,
+        "p-nummer": 1024940639,
+        "hovedbranche": "Computerprogrammering",
+        "navn": "Documendo Aps",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Klausdalsbrovej",
+        "husnummer": 601,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "ar@documendo.dk",
+        "startdato": "2019-08-15 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.387439827051, 55.753833503647]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 40129286,
+        "p-nummer": 1024255464,
+        "hovedbranche": "Anden undervisning i.a.n.",
+        "navn": "Tankecoach",
+        "fuldt ansvarlige deltagere": "\"Bjarne Dyhrberg Geertsen\"",
+        "kommunekode": 151,
+        "vejnavn": "Kastebjergvej",
+        "husnummer": 19,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "bjarne@tankecoach.dk",
+        "startdato": "2019-01-02 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.406069920705, 55.719481797201]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 40141596,
+        "p-nummer": 1024268752,
+        "hovedbranche": "Udlejning og leasing af biler og lette motork\u00f8ret\u00f8jer",
+        "navn": "OHG Service",
+        "fuldt ansvarlige deltagere": "\"Oliver H\u00f8ier Gr\u00f8nh\u00f8j\"",
+        "kommunekode": 151,
+        "vejnavn": "Lundebjergg\u00e5rdsvej",
+        "husnummer": 58,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "oliver.hg1999@gmail.com",
+        "startdato": "2018-11-16 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.339643853639, 55.727691138535]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 40193235,
+        "p-nummer": 1024819406,
+        "hovedbranche": "Almindelig reng\u00f8ring i bygninger",
+        "navn": "Gr\u00f8ndex Reng\u00f8ring",
+        "fuldt ansvarlige deltagere": "\"Iman Baalbaki\"",
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 241,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "G-D-service@hotmail.com",
+        "startdato": "2019-07-01 00:00:00",
+        "indl\u00e6st dato": "2019-08-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.340610275985, 55.752697637956]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 40303707,
+        "p-nummer": 1024458497,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Skjoldrup Holding IVS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Mellemvej",
+        "husnummer": 13,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-03-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.342456484649, 55.728195830092]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40315071,
+        "p-nummer": 1024482134,
+        "hovedbranche": "Private vagt- og sikkerhedstjenester",
+        "navn": "BS Hundevagt",
+        "fuldt ansvarlige deltagere": "\"Benny S\u00f8rensen\"",
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 213,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "benny_bom@hotmail.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.387205625542, 55.735632762813]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 40500367,
+        "p-nummer": 1024681889,
+        "hovedbranche": "Forsikringsagenters og forsikringsm\u00e6gleres virksomhed",
+        "navn": "Lenstjernes Forsikringsagentur",
+        "fuldt ansvarlige deltagere": "\"Tina Folkmann Lenstjerne\"",
+        "kommunekode": 151,
+        "vejnavn": "Lautruph\u00f8j",
+        "husnummer": 5,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-05-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.360765711278, 55.736415622601]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Tilflytter",
+        "cvr-nummer": 40503501,
+        "p-nummer": 1024690799,
+        "hovedbranche": "Kunstnerisk skaben",
+        "navn": "Linda Karin Larsen",
+        "fuldt ansvarlige deltagere": "\"Linda Karin Larsen\"",
+        "kommunekode": 151,
+        "vejnavn": "Broens Kvarter",
+        "husnummer": 21,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "lindakarinlarsen@gmail.com",
+        "startdato": "2019-05-07 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.386680509496, 55.749654365272]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40639985,
+        "p-nummer": 1024851768,
+        "hovedbranche": "Alment praktiserende l\u00e6ger",
+        "navn": "P. Hellmann l\u00e6geydelser",
+        "fuldt ansvarlige deltagere": "\"Philip H\u00f8gh Hellmann\"",
+        "kommunekode": 151,
+        "vejnavn": "\u00c5gesdalsvej",
+        "husnummer": 4,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "Philip@dadlnet.dk",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.366571108694, 55.72543897186]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40641645,
+        "p-nummer": 1024858452,
+        "hovedbranche": "Konsulentbistand vedr\u00f8rende informationsteknologi",
+        "navn": "HH-IT v/Hilbert Henriksen",
+        "fuldt ansvarlige deltagere": "\"Hilbert Henriksen\"",
+        "kommunekode": 151,
+        "vejnavn": "Rugv\u00e6nget",
+        "husnummer": 66,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "hilbert@hhenriksen.dk",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.362766919323, 55.724991318204]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40642005,
+        "p-nummer": 1024851466,
+        "hovedbranche": "Kunstnerisk skaben",
+        "navn": "Saven i Tr\u00e6et",
+        "fuldt ansvarlige deltagere": "\"Teis Smidt Dreijer\"",
+        "kommunekode": 151,
+        "vejnavn": "Bygv\u00e6nget",
+        "husnummer": 23,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "teis@dreijer.dk",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.393717242981, 55.716389728838]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40650105,
+        "p-nummer": 1024862158,
+        "hovedbranche": "Public relations og kommunikation",
+        "navn": "BOVE Kommunikation",
+        "fuldt ansvarlige deltagere": "\"Kim Kappelgaard Bove\"",
+        "kommunekode": 151,
+        "vejnavn": "Morelvej",
+        "husnummer": 34,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "kim.bove@gmail.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.311844480133, 55.751150106772]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40669906,
+        "p-nummer": 1024886480,
+        "hovedbranche": "Landskabspleje",
+        "navn": "Grow",
+        "fuldt ansvarlige deltagere": "\"Dean \u00d8rum Eriksen\"",
+        "kommunekode": 151,
+        "vejnavn": "Eskebjergg\u00e5rd",
+        "husnummer": 22,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "booknotto@outlook.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.394932444106, 55.719690472039]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40674691,
+        "p-nummer": 1024999927,
+        "hovedbranche": "Anden bygningsf\u00e6rdigg\u00f8relse",
+        "navn": "NixMix",
+        "fuldt ansvarlige deltagere": "\"Nick Sidenius Hansen\"",
+        "kommunekode": 151,
+        "vejnavn": "Gl.Skovlundevej",
+        "husnummer": 8,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "nick_hansen87@hotmail.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.33246971196, 55.747151769964]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40681612,
+        "p-nummer": 1024906309,
+        "hovedbranche": "R\u00e5dgivende ingeni\u00f8rvirksomhed inden for produktions- og maskinteknik",
+        "navn": "SS Teknik v/Saad Mahmood",
+        "fuldt ansvarlige deltagere": "\"Saad Bin Shahzad Mahmood\"",
+        "kommunekode": 151,
+        "vejnavn": "Snarestr\u00e6de",
+        "husnummer": 5,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "saadii1993@hotmail.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.353858774671, 55.735757516167]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40684891,
+        "p-nummer": 1024914727,
+        "hovedbranche": "T\u00f8mrer- og bygningssnedkervirksomhed",
+        "navn": "KJT T\u00f8mrer og snedker",
+        "fuldt ansvarlige deltagere": "\"Kenn Jensen\"",
+        "kommunekode": 151,
+        "vejnavn": "Mosevej",
+        "husnummer": 30,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jensenkenn23@gmail.com",
+        "startdato": "2019-08-05 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.36741473103, 55.7243782602]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40686479,
+        "p-nummer": 1024905736,
+        "hovedbranche": "Detailhandel med elektroniske eller elektriske apparater samt fotoudstyr via internet",
+        "navn": "BB-Dampers",
+        "fuldt ansvarlige deltagere": "\"Jonathan Georg Berdiin\"",
+        "kommunekode": 151,
+        "vejnavn": "Kornv\u00e6nget",
+        "husnummer": 43,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "J-Berdiin@hotmail.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.393974368595, 55.728739835742]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40687580,
+        "p-nummer": 1024907461,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "NemLog-in Test",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupvang",
+        "husnummer": 24,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "nemlogintest@gmail.com",
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.394155405076, 55.711945700458]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40688366,
+        "p-nummer": 1024914689,
+        "hovedbranche": "Konsulentbistand vedr\u00f8rende informationsteknologi",
+        "navn": "2nd Position",
+        "fuldt ansvarlige deltagere": "\"Daniel Kongstad Sebenius\"",
+        "kommunekode": 151,
+        "vejnavn": "Birkeengen",
+        "husnummer": 36,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.374856178781, 55.72751086116]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40688838,
+        "p-nummer": 1024908719,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Danish Card Games Association",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Brydehusvej",
+        "husnummer": 30,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "30710228@outlook.com",
+        "startdato": "2019-08-02 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.416437772777, 55.716688248914]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40690085,
+        "p-nummer": 1024910853,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "TIC-elkas Holding ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Meterbuen",
+        "husnummer": 15,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.387223873447, 55.740879456097]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40695869,
+        "p-nummer": 1024918927,
+        "hovedbranche": "Andre hj\u00e6lpetjenester i forbindelse med finansiel formidling",
+        "navn": "Centurion DK A/S",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Lautrupbjerg",
+        "husnummer": 10,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-05 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.395727263265, 55.722845943843]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40696660,
+        "p-nummer": 1024925087,
+        "hovedbranche": "Konsulentbistand vedr\u00f8rende informationsteknologi",
+        "navn": "TK. Recruitment",
+        "fuldt ansvarlige deltagere": "\"Olivia Post Kreutzmann\"",
+        "kommunekode": 151,
+        "vejnavn": "Ringtoften",
+        "husnummer": 71,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2019-08-07 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.399654809155, 55.738804260225]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40697063,
+        "p-nummer": 1024926326,
+        "hovedbranche": "Public relations og kommunikation",
+        "navn": "Kaleidoscopic",
+        "fuldt ansvarlige deltagere": "\"Jason Frank Breaux\"",
+        "kommunekode": 151,
+        "vejnavn": "Klausdalsbrovej",
+        "husnummer": 601,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jfbreaux@gmail.com",
+        "startdato": "2019-08-07 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.351354772645, 55.726175547726]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40698019,
+        "p-nummer": 1024924951,
+        "hovedbranche": "Virksomhedsr\u00e5dgivning og anden r\u00e5dgivning om driftsledelse",
+        "navn": "Automotive Training DK",
+        "fuldt ansvarlige deltagere": "\"Jan Torp Steffensen\"",
+        "kommunekode": 151,
+        "vejnavn": "Roasvej",
+        "husnummer": 27,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jnsteffensen8@gmail.com",
+        "startdato": "2019-08-20 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.299691039168, 55.759852095938]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40701664,
+        "p-nummer": 1024928019,
+        "hovedbranche": "Udlejning af erhvervsejendomme",
+        "navn": "Sasma Invest ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Jungsh\u00f8jvej",
+        "husnummer": 18,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "info@repto.dk",
+        "startdato": "2019-08-08 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.321132768823, 55.753057973175]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40704728,
+        "p-nummer": 1024943816,
+        "hovedbranche": "Virksomhedsr\u00e5dgivning og anden r\u00e5dgivning om driftsledelse",
+        "navn": "INMAIX",
+        "fuldt ansvarlige deltagere": "\"Martin Krusb\u00e6k\"",
+        "kommunekode": 151,
+        "vejnavn": "Kratvej",
+        "husnummer": 27,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "mkrusbaek@gmail.com",
+        "startdato": "2019-08-12 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.350092452541, 55.728501812437]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40705538,
+        "p-nummer": 1024932016,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "M. Scharling Holding ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 97,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-08 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.378045678411, 55.741399164285]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40706194,
+        "p-nummer": 1024933004,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Channouf ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Viggo Barfoeds Alle",
+        "husnummer": 63,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-10 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.360540281762, 55.738522810815]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40706933,
+        "p-nummer": 1024933721,
+        "hovedbranche": "Detailhandel med husholdnings- eller boligudstyr, bortset fra elektriske apparater, via internet",
+        "navn": "N9nnas.dk",
+        "fuldt ansvarlige deltagere": "\"Ninna Hansen Nielsen\"",
+        "kommunekode": 151,
+        "vejnavn": "M\u00f8llens Kvarter",
+        "husnummer": 12,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "nielsen_ninnah@hotmail.com",
+        "startdato": "2019-08-12 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.389026578471, 55.723348844494]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40709061,
+        "p-nummer": 1024943778,
+        "hovedbranche": "Sk\u00f8nheds- og hudpleje",
+        "navn": "LC lashes",
+        "fuldt ansvarlige deltagere": "\"Louise Marie Christensen\"",
+        "kommunekode": 151,
+        "vejnavn": "Ringtoften",
+        "husnummer": 141,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "loumch@live.dk",
+        "startdato": "2019-08-19 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.355923714474, 55.72829196119]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40712348,
+        "p-nummer": 1024943557,
+        "hovedbranche": "Renserier, selvbetjeningsvaskerier mv.",
+        "navn": "Ballerup Rens",
+        "fuldt ansvarlige deltagere": "\"Nesibe Akdeve\"",
+        "kommunekode": 151,
+        "vejnavn": "Baltorpvej",
+        "husnummer": 5,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-15 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.390070312341, 55.758284751423]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40713069,
+        "p-nummer": 1024942798,
+        "hovedbranche": "Fremstilling af keramiske husholdningsartikler og pyntegenstande",
+        "navn": "Schmidt + Sonnichsen ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "R\u00f8nne Alle",
+        "husnummer": 11,
+        "postnummer": 3500,
+        "postdistrikt": "V\u00e6rl\u00f8se",
+        "emailadresse": "kasper.sonnichsen@gmail.com",
+        "startdato": "2019-08-14 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.378045678411, 55.741399164285]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40713395,
+        "p-nummer": 1024943115,
+        "hovedbranche": "Virksomhedsr\u00e5dgivning og anden r\u00e5dgivning om driftsledelse",
+        "navn": "Conscious Convenience ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Viggo Barfoeds Alle",
+        "husnummer": 63,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-12 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.355463991929, 55.732763160934]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40713778,
+        "p-nummer": 1024943263,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Lucas Mandrup Holding ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Pr\u00e6stev\u00e6nget",
+        "husnummer": 27,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-15 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.39360378642, 55.714792625933]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40719350,
+        "p-nummer": 1024950952,
+        "hovedbranche": "Anden undervisning i.a.n.",
+        "navn": "Rummelige strategier v/Tina Akkermann",
+        "fuldt ansvarlige deltagere": "\"Tina Petersen\"",
+        "kommunekode": 151,
+        "vejnavn": "Hybenv\u00e6nget",
+        "husnummer": 36,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "takkermann@gmail.com",
+        "startdato": "2019-08-15 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.328884295984, 55.754042197299]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40720979,
+        "p-nummer": 1024959526,
+        "hovedbranche": "Hjemmehj\u00e6lp",
+        "navn": "Anette Bruun",
+        "fuldt ansvarlige deltagere": "\"Anette Bruun\"",
+        "kommunekode": 151,
+        "vejnavn": "Marklodden",
+        "husnummer": 33,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "anettebruun@webspeed.dk",
+        "startdato": "2019-08-20 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.399654809155, 55.738804260225]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40724559,
+        "p-nummer": 1024956594,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Spuur Hansen Holding ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Klausdalsbrovej",
+        "husnummer": 601,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-20 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.382653851899, 55.752024033547]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40730249,
+        "p-nummer": 1024963604,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Karen Tovgaard Holding ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Tranemosevej",
+        "husnummer": 54,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-12 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.392438714355, 55.712250056125]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40731466,
+        "p-nummer": 1024970643,
+        "hovedbranche": "Computerprogrammering",
+        "navn": "Giant Shoulder",
+        "fuldt ansvarlige deltagere": "\"Chandramouli Soorian\"",
+        "kommunekode": 151,
+        "vejnavn": "Birkeengen",
+        "husnummer": 44,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "naruvimama@gmail.com",
+        "startdato": "2019-08-22 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.381618862689, 55.751283813465]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40732357,
+        "p-nummer": 1024965755,
+        "hovedbranche": "Flytteforretninger",
+        "navn": "Lucas Flytteservice ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Egebjergvej",
+        "husnummer": 45,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-16 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.350866910362, 55.719120793682]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40732918,
+        "p-nummer": 1024967189,
+        "hovedbranche": "Kombinerede serviceydelser",
+        "navn": "JTLP Service",
+        "fuldt ansvarlige deltagere": "\"Jesper Smith L\u00f8ntoft\"",
+        "kommunekode": 151,
+        "vejnavn": "Vinterbuen",
+        "husnummer": 59,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "jtlpservice@gmail.com",
+        "startdato": "2019-08-23 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.323314109089, 55.753772965689]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40733086,
+        "p-nummer": 1024967138,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Regnbuespejder",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Kratvej",
+        "husnummer": 43,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "kontakt@regnbuespejder.dk",
+        "startdato": "2019-08-23 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.417103478282, 55.715845306949]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40734627,
+        "p-nummer": 1024971674,
+        "hovedbranche": "Autoreparationsv\u00e6rksteder mv.",
+        "navn": "Bigleo 7",
+        "fuldt ansvarlige deltagere": "\"Saso Gorgievski\"",
+        "kommunekode": 151,
+        "vejnavn": "Meterbuen",
+        "husnummer": 9,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "sasgor@hotmail.com",
+        "startdato": "2019-08-24 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.397602400648, 55.722653147572]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40735178,
+        "p-nummer": 1024971631,
+        "hovedbranche": "Rejsearrang\u00f8rer",
+        "navn": "Eminence Travel and Tours",
+        "fuldt ansvarlige deltagere": "\"Bernarda Patricia Paz Hillmann\"",
+        "kommunekode": 151,
+        "vejnavn": "Ringtoften",
+        "husnummer": 43,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "eminencetravelandtours@gmail.com",
+        "startdato": "2019-08-21 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.3428772157, 55.726667957599]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40739106,
+        "p-nummer": 1024974495,
+        "hovedbranche": "Andre organisationer og foreninger i.a.n.",
+        "navn": "Menighedsplejen Pederstrup Sogn",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Platanbuen",
+        "husnummer": 6,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "tyren29@hotmail.com",
+        "startdato": "2019-08-27 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.365033940791, 55.734341510456]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40741534,
+        "p-nummer": 1024978822,
+        "hovedbranche": "Alment praktiserende l\u00e6ger",
+        "navn": "L\u00e6gerne Helsehuset Nord I/S",
+        "fuldt ansvarlige deltagere": "\"Anders Dupont\",\"Ellen M\u00f8lgaard Holtze\",\"Heidi Vognsvend Heinig\"",
+        "kommunekode": 151,
+        "vejnavn": "Hold-An Vej",
+        "husnummer": 5,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "hnord@doktormand.dk",
+        "startdato": "2019-08-27 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.404565695679, 55.71063910273]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40745580,
+        "p-nummer": 1024983176,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Holding - DS83 ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Hjulbyvej",
+        "husnummer": 13,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2019-08-28 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.390630027246, 55.753334181077]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40749292,
+        "p-nummer": 1024994518,
+        "hovedbranche": "Anden forretningsservice i.a.n.",
+        "navn": "Returvogn",
+        "fuldt ansvarlige deltagere": "\"Carina Christel Bianchy Schj\u00f8tt\"",
+        "kommunekode": 151,
+        "vejnavn": "Udbakken",
+        "husnummer": 24,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "carinaschjott@gmail.com",
+        "startdato": "2019-08-31 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.321800820597, 55.744734328491]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40758143,
+        "p-nummer": 1024997622,
+        "hovedbranche": "Landskabspleje",
+        "navn": "Kanstrup Gruppen Anl\u00e6g ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "S\u00f8nderg\u00e5rds All\u00e9",
+        "husnummer": 5,
+        "postnummer": 2760,
+        "postdistrikt": "M\u00e5l\u00f8v",
+        "emailadresse": "Info@KanstrupGruppen.dk",
+        "startdato": "2019-08-23 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.395208180335, 55.715912142051]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40773088,
+        "p-nummer": 1025063275,
+        "hovedbranche": "Pizzeriaer, grillbarer, isbarer mv.",
+        "navn": "P\u00f8lsehygge I/S",
+        "fuldt ansvarlige deltagere": "\"Jan Christian Larsen\",\"Kennet Berg Petersen\"",
+        "kommunekode": 151,
+        "vejnavn": "Morelvej",
+        "husnummer": 24,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": "ope@lundebjergnet.dk",
+        "startdato": "2019-08-19 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.351081618391, 55.73804353235]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 40780807,
+        "p-nummer": 1025028259,
+        "hovedbranche": "Ikke-finansielle holdingselskaber",
+        "navn": "Cabras Holding ApS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Nyvangen",
+        "husnummer": 71,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "2019-08-30 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.423264896847, 55.711187558643]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Nystartet",
+        "cvr-nummer": 43253018,
+        "p-nummer": 1025021866,
+        "hovedbranche": "Engroshandel med l\u00e6ge- og hospitalsartikler",
+        "navn": "Philips Danmark A/S, HCIS",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Tonsbakken",
+        "husnummer": 16,
+        "postnummer": 2740,
+        "postdistrikt": "Skovlunde",
+        "emailadresse": null,
+        "startdato": "2019-08-01 00:00:00",
+        "indl\u00e6st dato": "2019-10-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.36284811608, 55.726675717407]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 62912413,
+        "p-nummer": 1003151482,
+        "hovedbranche": "Almennyttige boligselskaber",
+        "navn": "Afd. Kirstinelund",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Rugv\u00e6nget",
+        "husnummer": 31,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "1989-01-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.377794089208, 55.749907301259]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 62912413,
+        "p-nummer": 1003151494,
+        "hovedbranche": "Almennyttige boligselskaber",
+        "navn": "Afd. Egebjerghaven",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Egebjerg Bygade",
+        "husnummer": 67,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": null,
+        "startdato": "1989-01-01 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.365850735709, 55.723903914447]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 62912413,
+        "p-nummer": 1016847905,
+        "hovedbranche": "Almennyttige boligselskaber",
+        "navn": "Afd. Kornv\u00e6nget",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Kornv\u00e6nget",
+        "husnummer": 130,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "1703@almenbo.dk",
+        "startdato": "2011-05-10 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.363541158033, 55.727251569529]
+      },
+      "type": "Feature",
+      "properties": {
+        "status": "Oph\u00f8rt",
+        "cvr-nummer": 62912413,
+        "p-nummer": 1016847980,
+        "hovedbranche": "Almennyttige boligselskaber",
+        "navn": "Afd. B\u00f8rneinstitutionen",
+        "fuldt ansvarlige deltagere": null,
+        "kommunekode": 151,
+        "vejnavn": "Rugv\u00e6nget",
+        "husnummer": 33,
+        "postnummer": 2750,
+        "postdistrikt": "Ballerup",
+        "emailadresse": "1703@almenbo.dk",
+        "startdato": "2011-05-10 00:00:00",
+        "indl\u00e6st dato": "2019-09-01"
+      }
+    }
+  ],
+  "auth_check": {
+    "success": true,
+    "session": null,
+    "auth_level": false
+  },
+  "_execution_time": 28.85
+}

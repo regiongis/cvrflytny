@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import IconButton from '@material-ui/core/IconButton';
+import DoneIcon from '@material-ui/icons/Done';
 // import FormGroup from '@material-ui/core/FormGroup';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Switch from '@material-ui/core/Switch';
@@ -54,8 +55,8 @@ const styles = theme => ({
         flexWrap: 'wrap',
     },
     textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
         width: 200,
     },
     dense: {
@@ -65,7 +66,7 @@ const styles = theme => ({
         width: 300,
     },
     progress: {
-        margin: theme.spacing.unit * 2
+        margin: theme.spacing(1) * 2
     }
 });
 
@@ -108,7 +109,8 @@ class App extends Component{
             Nystartet:true,
             csvData: [],
             loading: true,
-            completed: 0
+            completed: 0,
+            canSendRequest:false
         }
 
         this.theData = {};
@@ -118,6 +120,7 @@ class App extends Component{
         this.handleSelect = this.handleSelect.bind(this);
         this.handleChecked = this.handleChecked.bind(this);
         this.progress = this.progress.bind(this);
+        this.handleDoneClick = this.handleDoneClick.bind(this);
     
     }
 
@@ -153,13 +156,14 @@ class App extends Component{
     }
 
     getKommuner(){
-        let komUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, "
-                        +"komnavn from data.kommune group by komkode, komnavn order by komnavn";
+       // let komUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, "
+       //                 +"komnavn from data.kommune group by komkode, komnavn order by komnavn";
+        let komUrl = "kom.json";
         let that = this;
         jQuery.ajax({
             url: komUrl,
             type: 'GET',
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function(res){
                 let koms = res.features.map(feature => feature.properties);
                 that.setState((preveState) => ({kommuner: koms}));
@@ -170,12 +174,17 @@ class App extends Component{
     getData(komkode,startDate, endDate){ 
         this.setState((preveState) => ({csvData: [], loading: true}));
         let that = this;
-        let dataUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad("  
-                    + komkode + ",'2019-08-01','2019-08-31')&srs=4326";
+        if(!komkode){
+            this.setState({loading:false});
+            return;
+        } 
+       // let dataUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad("  
+        //            + komkode + ",'2019-08-01','2019-08-31')&srs=4326";
+        let dataUrl = "data.json";
         jQuery.ajax({
             url: dataUrl,
             type: 'GET',
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function(res){
                 that.setState((preveState) => ({data: res.features}));
                 // console.log(res.features);
@@ -215,11 +224,7 @@ class App extends Component{
     }
     handleSelect(event){ 
         event.persist();
-        let kom = event.target.value;
-        let {startDate, endDate} = this.state;
         this.setState((prevState) => ({komkode : event.target.value}));
-        this.getData(kom, startDate, endDate);
-        navigate(`/${kom}`);
     }
 
     componentDidMount(){
@@ -234,33 +239,30 @@ class App extends Component{
 
     handleChange(event, value){
        this.setState({ value });
-       //console.log('navigating to ' + value);
-       //navigate(`/${value}`)
     };
+
+    handleDoneClick(){
+        let {komkode, startDate, endDate} = this.state;
+        this.getData(komkode,startDate,endDate);
+        navigate(`/${komkode}`)
+    }
 
     handleStart(date){ 
         this.setState({
             startDate: date.format('YYYY-MM-DD')
         });
-        let startDate = date.format('YYYY-MM-DD');
-        let {komkode, endDate} = this.state;
-        this.getData(komkode, startDate, endDate);
     };
 
     handleEnd(date){ 
         this.setState({
             endDate: date.format('YYYY-MM-DD')
         });
-        let endDate = date.format('YYYY-MM-DD');
-        let {komkode, startDate} = this.state;
-        this.getData(komkode, startDate, endDate);
     }
   
     render(){
         console.log("props from router => ",this.props.komnr);
         const { value, startDate, endDate, kommuner, komkode } = this.state;
         const locale = 'da';
-       // const _csvData = this.getCsv();
         return (
             <MuiThemeProvider theme={theme}>
             
@@ -270,7 +272,7 @@ class App extends Component{
                         <AppBar position="static" color="default">
                             <Toolbar>
                                 <Grid container /*spacing={}*/>
-                                    <Grid item xs={4}>
+                                    <Grid item xs={2}>
                                         <Typography variant="h6" color="inherit">
                                             CVR Flyttemønster
                                         </Typography>
@@ -296,7 +298,7 @@ class App extends Component{
                                                 let selected = this.state.komkode === kom.komkode ? 'selected' : false;
                                                 if(selected) console.log(kom.komnavn)
                                                 return (
-                                                <option key={kom.komkode} value={kom.komkode} selected={selected}>
+                                                <option key={kom.komkode} value={kom.komkode}>
                                                     {kom.komnavn}
                                                 </option>
                                             )})}      
@@ -323,7 +325,11 @@ class App extends Component{
                                             />   
                                         </MuiPickersUtilsProvider>       
                                     </Grid>
-                                    
+                                    <Grid item xs={2}>
+                                        <IconButton arial-label="Done" onClick={this.handleDoneClick} >
+                                            <DoneIcon/>
+                                        </IconButton>
+                                    </Grid>
                                     
                                     <Grid item xs={2}>
                                            
@@ -373,24 +379,20 @@ class App extends Component{
                                 >
                                 <Tab icon={
                                     <Tooltip title="Kort">
-                                    <IconButton aria-label="Kort">
                                         <Map/>
-                                    </IconButton>
                                   </Tooltip>
                                 } />
                                 <Tab icon={
                                     <Tooltip title="Tabel">
-                                    <IconButton aria-label="Tabel">
                                         <TableChart/>
-                                    </IconButton>
                                   </Tooltip>
                                 
-                                } />
+                                } 
+                                aria-label="Tabel"
+                                />
                                 <Tab icon={
                                     <Tooltip title="Grapher">
-                                    <IconButton aria-label="Grapher">
                                         <BarChart/>
-                                    </IconButton>
                                   </Tooltip>
                                 
                                 } />

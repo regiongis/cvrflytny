@@ -19,21 +19,34 @@ class MapData extends React.Component {
   }
 
   renderMap() {
+    var myAttributionText =
+      '&copy; <a target="_blank" href="https://download.kortforsyningen.dk/content/vilk%C3%A5r-og-betingelser">Styrelsen for Dataforsyning og Effektivisering</a>';
+    var kftoken = "d12107f70a3ee93153f313c7c502169a";
+    var toposkaermkortwmts = L.tileLayer.wms(
+      "https://services.kortforsyningen.dk/topo_skaermkort",
+      {
+        layers: "dtk_skaermkort_daempet",
+        token: kftoken,
+        format: "image/png",
+        attribution: myAttributionText
+      }
+    );
     map = L.map("map", {
       center: [55.2, 12.2],
       zoom: 9,
       layers: [
-        L.tileLayer(
-          "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
-          {
-            attribution:
-              'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 14,
-            id: "baffioso.ie1ok8lg",
-            accessToken:
-              "pk.eyJ1IjoiYmFmZmlvc28iLCJhIjoiT1JTS1lIMCJ9.f5ubY91Bi42yPnTrgiq-Gw"
-          }
-        )
+        // L.tileLayer(
+        //   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+        //   {
+        //     attribution:
+        //       'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        //     maxZoom: 14,
+        //     id: "baffioso.ie1ok8lg",
+        //     accessToken:
+        //       "pk.eyJ1IjoiYmFmZmlvc28iLCJhIjoiT1JTS1lIMCJ9.f5ubY91Bi42yPnTrgiq-Gw"
+        //   }
+        // )
+        toposkaermkortwmts
       ]
     });
   }
