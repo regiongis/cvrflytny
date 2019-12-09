@@ -33,6 +33,7 @@ import {DatePicker} from '@material-ui/pickers';
 import MapData from './Map.js';
 import GridData from './Grid.js';
 import GraphData from './Graph.js';
+import DataTable from './DataTable';
 import './App.css';
 import classnames from 'classnames';
 import ReactExport from 'react-data-export';
@@ -396,10 +397,17 @@ class App extends Component{
                                   </Tooltip>
                                 
                                 } />
+                                {/* <Tab icon={
+                                    <Tooltip title="DataTable">
+                                        <DataTable/>
+                                  </Tooltip>
+                                
+                                } /> */}
                             </Tabs>
                         {value === 0 && <TabContainer><MapData data={this.state.data}/></TabContainer>} 
                         {value === 1 && <TabContainer><GridData data={this.state.data} /></TabContainer>}
                         {value === 2 && <TabContainer><GraphData data={this.state.data} /></TabContainer>}
+                        {/* {value === 3 && <TabContainer><DataTable /></TabContainer>} */}
                     </div>
                   
                 </div>

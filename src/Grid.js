@@ -134,7 +134,7 @@ class GridData extends React.PureComponent {
 
     const { statusColumns } = this.state;
     const pc = this.state.pcols;
-    console.log(pc);
+    //console.log(pc);
     const rows = this.props.data.map((feature, index) => {
       feature.properties["keyIndex"] = index;
       return feature.properties;
