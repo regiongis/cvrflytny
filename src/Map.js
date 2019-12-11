@@ -33,7 +33,7 @@ class MapData extends React.Component {
     );
     map = L.map("map", {
       center: [55.2, 12.2],
-      zoom: 9,
+      zoom: 8,
       layers: [
         // L.tileLayer(
         //   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
@@ -65,6 +65,8 @@ class MapData extends React.Component {
       return div;
     };
     legend.addTo(map);
+
+    L.control.scale().addTo(map);
   }
   renderFeatures(data) {
     //console.log('renderfeatures'); console.log(data);
@@ -96,6 +98,13 @@ class MapData extends React.Component {
       map.removeLayer(geojsonLayer);
     }
 
+    function getCenterPoint(data) {
+      let features = data.filter(feature =>
+        ["Nystartet", ""].includes(feature.properties.status)
+      );
+      if (features.length === 0) return null;
+      return features[0].geometry.coordinates;
+    }
     function onEachFeature(feature, layer) {
       layer.bindPopup(
         "<strong>" +
@@ -118,7 +127,9 @@ class MapData extends React.Component {
       }
     }).addTo(map);
 
-    map.fitBounds(geojsonLayer.getBounds());
+    let centerCoords = getCenterPoint(data);
+    if (centerCoords) map.setView([centerCoords[1], centerCoords[0]]);
+    else map.fitBounds(geojsonLayer.getBounds());
   }
   componentDidMount() {
     this.renderMap();
