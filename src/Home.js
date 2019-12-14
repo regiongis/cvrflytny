@@ -1,12 +1,18 @@
 import React from "react";
-import { Router } from "@reach/router";
+import { createHistory, LocationProvider, Router } from "@reach/router";
+import createHashSource from "hash-source";
 import App from "./App";
 
+let source = createHashSource();
+let history = createHistory(source);
+
 const Home = () => (
-  <Router>
-    <App path="cvrflytny/" />
-    <App path="cvrflytny/:komnr" />
-  </Router>
+  <LocationProvider history={history}>
+    <Router>
+      <App path="/" />
+      <App path="/:komnr" />
+    </Router>
+  </LocationProvider>
 );
 
 export default Home;
