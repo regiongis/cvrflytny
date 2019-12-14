@@ -96,6 +96,7 @@ TabContainer.propTypes = {
 class App extends Component{
     constructor(props){
         super(props);
+        console.log('komrn ',this.props.komnr);
         this.state = {
             value: 0,
             startDate: moment().subtract(1,'months').startOf('month').format('YYYY-MM-DD'),
@@ -103,7 +104,7 @@ class App extends Component{
             data: [],
             filteredData: [],
             kommuner: [],
-            komkode: this.props.komnr, //'165',
+            komkode: '165',//this.props.komnr, //'165',
             Fraflytter: true,
             Tilflytter: true,
             Ophørt: true,
