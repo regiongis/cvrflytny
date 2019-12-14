@@ -244,7 +244,7 @@ class App extends Component {
     let { komkode, startDate, endDate } = this.state;
     this.getData(komkode, startDate, endDate);
     console.log("before navigating");
-    navigate("cvrflytny/#/" + komkode);
+    navigate("/#/" + komkode);
   }
 
   handleStart(date) {
