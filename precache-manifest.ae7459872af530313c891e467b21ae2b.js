@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e4a00e798cb4d8b9c440f7933c241cd0",
+    "revision": "b7ae32ce4986aaf03fa46ef387eabcbe",
     "url": "/cvrflytny/index.html"
   },
   {
-    "revision": "67c55687ff21eab973ce",
+    "revision": "54509efa3aa991460aaf",
     "url": "/cvrflytny/static/css/main.b100e6da.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cvrflytny/static/js/2.4963c76d.chunk.js"
   },
   {
-    "revision": "67c55687ff21eab973ce",
-    "url": "/cvrflytny/static/js/main.a20d84d9.chunk.js"
+    "revision": "54509efa3aa991460aaf",
+    "url": "/cvrflytny/static/js/main.282f333c.chunk.js"
   },
   {
     "revision": "e392c3fb2d54232e000a",
