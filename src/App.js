@@ -157,14 +157,14 @@ class App extends Component{
     }
 
     getKommuner(){
-       // let komUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, "
-       //                 +"komnavn from data.kommune group by komkode, komnavn order by komnavn";
-        let komUrl = "kom.json";
+        let komUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, "
+                        +"komnavn from data.kommune group by komkode, komnavn order by komnavn";
+       // let komUrl = "kom.json";
         let that = this;
         jQuery.ajax({
             url: komUrl,
             type: 'GET',
-            dataType: 'json',
+            dataType: 'jsonp',
             success: function(res){
                 let koms = res.features.map(feature => feature.properties);
                 that.setState((preveState) => ({kommuner: koms}));
@@ -179,13 +179,13 @@ class App extends Component{
             this.setState({loading:false});
             return;
         } 
-       // let dataUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad("  
-        //            + komkode + ",'2019-08-01','2019-08-31')&srs=4326";
-        let dataUrl = "data.json";
+        let dataUrl = "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad_dev("  
+                   + komkode + ",'2019-08-01','2019-08-31')&srs=4326";
+       // let dataUrl = "data.json";
         jQuery.ajax({
             url: dataUrl,
             type: 'GET',
-            dataType: 'json',
+            dataType: 'jsonp',
             success: function(res){
                 that.setState((preveState) => ({data: res.features}));
                 // console.log(res.features);

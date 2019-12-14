@@ -43,7 +43,7 @@ const StatusTypeProvider = props => (
 );
 
 const PnummerFormatter = ({ value }) => {
-  console.log("reach pnummer =>", value);
+  //console.log("reach pnummer =>", value);
   let link = `https://datacvr.virk.dk/data/visenhed?enhedstype=produktionsenhed&id=${value}`;
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
@@ -137,6 +137,17 @@ class GridData extends React.PureComponent {
     //console.log(pc);
     const rows = this.props.data.map((feature, index) => {
       feature.properties["keyIndex"] = index;
+      if (
+        [81, 230, 235, 245, 250].includes(feature.properties.virksomhedsform)
+      ) {
+        console.log(
+          feature.properties.virksomhedsform,
+          ": ",
+          feature.properties.navn
+        );
+      } else {
+        // console.log(feature.properties.virksomhedsform, " no ivs or off");
+      }
       return feature.properties;
     });
 
