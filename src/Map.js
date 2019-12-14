@@ -128,7 +128,7 @@ class MapData extends React.Component {
     }).addTo(map);
 
     let centerCoords = getCenterPoint(data);
-    if (centerCoords) map.setView([centerCoords[1], centerCoords[0]]);
+    if (centerCoords) map.setView([centerCoords[1], centerCoords[0]], 12);
     else map.fitBounds(geojsonLayer.getBounds());
   }
   componentDidMount() {
