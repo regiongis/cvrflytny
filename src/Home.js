@@ -4,8 +4,8 @@ import App from "./App";
 
 const Home = () => (
   <Router>
-    <App path="/" />
-    <App path="/:komnr" />
+    <App path="cvrflytny/" />
+    <App path="cvrflytny/:komnr" />
   </Router>
 );
 
