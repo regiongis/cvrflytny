@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "12915d4a8cf708d4f0b713b34df2ed4e",
+    "revision": "9ac23e27596e1dcaefb36673363231fa",
     "url": "/cvrtest/index.html"
   },
   {
-    "revision": "548ebe4c4b1cd920e3c9",
+    "revision": "f536cb73f3cc7c979b58",
     "url": "/cvrtest/static/css/main.b100e6da.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cvrtest/static/js/2.4963c76d.chunk.js"
   },
   {
-    "revision": "548ebe4c4b1cd920e3c9",
-    "url": "/cvrtest/static/js/main.63c72295.chunk.js"
+    "revision": "f536cb73f3cc7c979b58",
+    "url": "/cvrtest/static/js/main.0b78c683.chunk.js"
   },
   {
     "revision": "290aaddf2284f3ea27a1",
