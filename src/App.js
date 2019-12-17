@@ -33,12 +33,15 @@ import { DatePicker } from "@material-ui/pickers";
 import MapData from "./Map.js";
 import GridData from "./Grid.js";
 import GraphData from "./Graph.js";
-import DataTable from "./DataTable";
+//import DataTable from "./DataTable";
+import MaterialGrid from "./MaterialGrid";
 import "./App.css";
 import classnames from "classnames";
 import ReactExport from "react-data-export";
 import jQuery from "jquery";
 import { navigate } from "@reach/router";
+import FilterListIcon from "@material-ui/icons/FilterList";
+import FilterComponent from "./FilterComponent";
 
 moment.locale("da");
 
@@ -112,7 +115,8 @@ class App extends Component {
       csvData: [],
       loading: true,
       completed: 0,
-      canSendRequest: false
+      canSendRequest: false,
+      filterOpen: false
     };
 
     this.theData = {};
@@ -123,12 +127,22 @@ class App extends Component {
     this.handleChecked = this.handleChecked.bind(this);
     this.progress = this.progress.bind(this);
     this.handleDoneClick = this.handleDoneClick.bind(this);
+    this.handleFilterOpen = this.handleFilterOpen.bind(this);
+    this.handleFilterClose = this.handleFilterClose.bind(this);
   }
 
   progress() {
     //console.log();
     let comp = this.state.completed;
     this.setState({ completed: comp >= 100 ? 0 : comp + 1 });
+  }
+
+  handleFilterOpen() {
+    this.setState({ filterOpen: !this.state.filterOpen });
+  }
+
+  handleFilterClose() {
+    this.setState({ filterOpen: false });
   }
 
   getCsv() {
@@ -156,12 +170,12 @@ class App extends Component {
     let komUrl =
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, " +
       "komnavn from data.kommune group by komkode, komnavn order by komnavn";
-    // let komUrl = "kom.json";
+    komUrl = "kom.json";
     let that = this;
     jQuery.ajax({
       url: komUrl,
       type: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       success: function(res) {
         let koms = res.features.map(feature => feature.properties);
         that.setState(preveState => ({ kommuner: koms }));
@@ -180,12 +194,12 @@ class App extends Component {
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad_dev(" +
       komkode +
       ",'2019-08-01','2019-08-31')&srs=4326";
-    // let dataUrl = "data.json";
+    dataUrl = "data.json";
     console.log(dataUrl);
     jQuery.ajax({
       url: dataUrl,
       type: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       success: function(res) {
         that.setState(preveState => ({ data: res.features }));
         // console.log(res.features);
@@ -267,6 +281,10 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <div className="app">
           <div className={this.state.loading ? "loading" : ""}></div>
+          <FilterComponent
+            open={this.state.filterOpen}
+            handleOpen={this.handleFilterOpen}
+          />
           <div className="">
             <AppBar position="static" color="default">
               <Toolbar>
@@ -341,6 +359,15 @@ class App extends Component {
                       onClick={this.handleDoneClick}
                     >
                       <DoneIcon />
+                    </IconButton>
+                  </Grid>
+
+                  <Grid item xs={2}>
+                    <IconButton
+                      arial-label="Filter"
+                      onClick={this.handleFilterOpen}
+                    >
+                      <FilterListIcon />
                     </IconButton>
                   </Grid>
 
@@ -424,7 +451,8 @@ class App extends Component {
             )}
             {value === 1 && (
               <TabContainer>
-                <GridData data={this.state.data} />
+                {/* <GridData data={this.state.data} /> */}
+                <MaterialGrid data={this.state.data} />
               </TabContainer>
             )}
             {value === 2 && (
