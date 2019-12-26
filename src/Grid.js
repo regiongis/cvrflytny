@@ -153,12 +153,21 @@ class GridData extends React.PureComponent {
 
     // console.log(rows);
     return (
-      <Paper style={{ height: "600px" }}>
+      <Paper
+        style={{
+          height: "600px"
+        }}
+      >
         <Grid
           rows={rows}
           columns={cols}
           getRowId={getRowId}
-          style={{ height: "100%" }}
+          style={{
+            height: "100%"
+            //flexGrow: 1,
+            //display: "flex",
+            //flexWrap: "wrap"
+          }}
         >
           <FilteringState defaultFilters={[]} />
           <IntegratedFiltering />
@@ -168,7 +177,7 @@ class GridData extends React.PureComponent {
           <IntegratedSorting />
           <StatusTypeProvider for={statusColumns} />
           <PnummerProvider for={pc} />
-          <VirtualTable height="auto" />
+          <VirtualTable height={600} />
           <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
           <TableHeaderRow showSortingControls />
           <TableFilterRow />

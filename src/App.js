@@ -34,14 +34,15 @@ import MapData from "./Map.js";
 import GridData from "./Grid.js";
 import GraphData from "./Graph.js";
 //import DataTable from "./DataTable";
-import MaterialGrid from "./MaterialGrid";
+// import MaterialGrid from "./MaterialGrid";
 import "./App.css";
 import classnames from "classnames";
 import ReactExport from "react-data-export";
 import jQuery from "jquery";
 import { navigate } from "@reach/router";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import FilterComponent from "./FilterComponent";
+// import FilterComponent from "./FilterComponent";
+import TemporaryDrawer from "./Drawer";
 
 moment.locale("da");
 
@@ -70,6 +71,9 @@ const styles = theme => ({
   },
   progress: {
     margin: theme.spacing(1) * 2
+  },
+  nested: {
+    paddingLeft: theme.spacing(4)
   }
 });
 
@@ -81,6 +85,28 @@ const theme = createMuiTheme({
 });
 
 //TODO: complete the select  comp!!!
+function uniqueValues(colValues) {
+  let vals = [...new Set(colValues)];
+  console.log(vals);
+  return vals;
+}
+
+function uniqueValuesGroupedByKey(arrOfObj, keys) {
+  // const keys = Object.keys(arrOfObj[0]);
+  //console.log(keys);
+  let ret = {};
+
+  function uniqueElemsOfSameKey(_arrOfObj, key) {
+    const values = _arrOfObj.map(elem => elem[key]);
+    return uniqueValues(values);
+  }
+
+  keys.forEach(key => {
+    ret[key] = uniqueElemsOfSameKey(arrOfObj, key);
+  });
+
+  return ret;
+}
 
 function TabContainer(props) {
   return <div>{props.children}</div>;
@@ -116,7 +142,27 @@ class App extends Component {
       loading: true,
       completed: 0,
       canSendRequest: false,
-      filterOpen: false
+      filterOpen: false,
+      drawerOpen: false,
+      fieldsToFilter: {
+        cols: [
+          "status",
+          "hovedbranche",
+          "vejnavn",
+          "postnummer",
+          "postdistrikt",
+          "cvr-nummer"
+        ],
+        data: {
+          status: [],
+          hovedbranche: [],
+          vejnavn: [],
+          postnummer: [],
+          postdistrikt: [],
+          "cvr-nummer": []
+        }
+      },
+      uniqueVals: {}
     };
 
     this.theData = {};
@@ -129,6 +175,7 @@ class App extends Component {
     this.handleDoneClick = this.handleDoneClick.bind(this);
     this.handleFilterOpen = this.handleFilterOpen.bind(this);
     this.handleFilterClose = this.handleFilterClose.bind(this);
+    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
   }
 
   progress() {
@@ -139,6 +186,10 @@ class App extends Component {
 
   handleFilterOpen() {
     this.setState({ filterOpen: !this.state.filterOpen });
+  }
+
+  handleDrawerOpen() {
+    this.setState({ drawerOpen: !this.state.drawerOpen });
   }
 
   handleFilterClose() {
@@ -204,7 +255,15 @@ class App extends Component {
         that.setState(preveState => ({ data: res.features }));
         // console.log(res.features);
         let csv = res.features.map(feature => feature.properties);
-        that.setState(prevState => ({ csvData: csv, loading: false }));
+        that.setState(prevState => ({
+          csvData: csv,
+          loading: false,
+          uniqueVals: uniqueValuesGroupedByKey(csv, [
+            "status",
+            "postnummer",
+            "postdistrikt"
+          ])
+        }));
       }
     });
   }
@@ -277,13 +336,19 @@ class App extends Component {
     console.log("props from router => ", this.props.komnr);
     const { value, startDate, endDate, kommuner, komkode } = this.state;
     const locale = "da";
+    console.log(this.state.uniqueVals);
     return (
       <MuiThemeProvider theme={theme}>
         <div className="app">
           <div className={this.state.loading ? "loading" : ""}></div>
-          <FilterComponent
+          {/* <FilterComponent
             open={this.state.filterOpen}
             handleOpen={this.handleFilterOpen}
+          /> */}
+          <TemporaryDrawer
+            handleDrawer={this.handleDrawerOpen}
+            drawerOpen={this.state.drawerOpen}
+            filterCols={this.state.uniqueVals}
           />
           <div className="">
             <AppBar position="static" color="default">
@@ -365,7 +430,7 @@ class App extends Component {
                   <Grid item xs={2}>
                     <IconButton
                       arial-label="Filter"
-                      onClick={this.handleFilterOpen}
+                      onClick={this.handleDrawerOpen}
                     >
                       <FilterListIcon />
                     </IconButton>
@@ -451,8 +516,8 @@ class App extends Component {
             )}
             {value === 1 && (
               <TabContainer>
-                {/* <GridData data={this.state.data} /> */}
-                <MaterialGrid data={this.state.data} />
+                <GridData data={this.state.data} />
+                {/* <MaterialGrid data={this.state.data} /> */}
               </TabContainer>
             )}
             {value === 2 && (
