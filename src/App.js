@@ -176,8 +176,30 @@ class App extends Component {
     this.handleFilterOpen = this.handleFilterOpen.bind(this);
     this.handleFilterClose = this.handleFilterClose.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+    this.handleDataAfterFilter = this.handleDataAfterFilter.bind(this);
   }
 
+  handleDataAfterFilter(filteredObj) {
+    console.log(filteredObj);
+    let keys = Object.keys(filteredObj).filter(key => {
+      // console.log(key);
+      return filteredObj[key].length > 0;
+    });
+    // console.log("keys filtered => ", keys);
+    let data = [];
+    this.state.data.forEach(row => {
+      keys.forEach(key => {
+        if (filteredObj[key] === row[key]) {
+          console.log(row);
+          data.push(row);
+        }
+      });
+    });
+    //remove eventual duplicates
+    data = [...new Set(data)];
+    console.log(data);
+    this.setState({ data: data });
+  }
   progress() {
     //console.log();
     let comp = this.state.completed;
@@ -349,6 +371,7 @@ class App extends Component {
             handleDrawer={this.handleDrawerOpen}
             drawerOpen={this.state.drawerOpen}
             filterCols={this.state.uniqueVals}
+            onDataFiltered={this.handleDataAfterFilter}
           />
           <div className="">
             <AppBar position="static" color="default">
