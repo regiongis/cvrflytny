@@ -89,7 +89,7 @@ class GraphData extends React.Component {
 
     return (
       <div>
-        <Paper style={{ height: "600px" }}>
+        <Paper style={{ height: "auto" }}>
           <VictoryChart
             height={200}
             width={300}

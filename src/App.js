@@ -87,7 +87,7 @@ const theme = createMuiTheme({
 //TODO: complete the select  comp!!!
 function uniqueValues(colValues) {
   let vals = [...new Set(colValues)];
-  console.log(vals);
+  // console.log(vals);
   return vals;
 }
 
@@ -98,7 +98,9 @@ function uniqueValuesGroupedByKey(arrOfObj, keys) {
 
   function uniqueElemsOfSameKey(_arrOfObj, key) {
     const values = _arrOfObj.map(elem => elem[key]);
-    return uniqueValues(values);
+    let ret  = uniqueValues(values);
+    ret = ret.map(elem => ({[elem] :false}));
+    return ret;
   }
 
   keys.forEach(key => {
@@ -119,7 +121,7 @@ TabContainer.propTypes = {
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log("komrn ", this.props.komnr);
+    // console.log("komrn ", this.props.komnr);
     this.state = {
       value: 0,
       startDate: moment()
@@ -153,7 +155,7 @@ class App extends Component {
           "postdistrikt",
           "cvr-nummer"
         ],
-        data: {
+        _data: {
           status: [],
           hovedbranche: [],
           vejnavn: [],
@@ -162,7 +164,8 @@ class App extends Component {
           "cvr-nummer": []
         }
       },
-      uniqueVals: {}
+      uniqueVals: {},
+      afterFilter: []
     };
 
     this.theData = {};
@@ -177,28 +180,46 @@ class App extends Component {
     this.handleFilterClose = this.handleFilterClose.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDataAfterFilter = this.handleDataAfterFilter.bind(this);
+    this.handleCheckedFilters = this.handleCheckedFilters.bind(this);
   }
 
-  handleDataAfterFilter(filteredObj) {
-    console.log(filteredObj);
+  handleCheckedFilters(text, event){ //console.log('called with => ', text)
+    let [group, name] = text.split("_");
+    let checkedGroup = this.state.uniqueVals[group];
+    let indexToUpdate = checkedGroup.findIndex(elem => Object.keys(elem)[0] === name);
+    let elementToUpdate = checkedGroup[indexToUpdate];
+    //Toggle to false or true
+    elementToUpdate[name] = !elementToUpdate[name];
+
+    this.setState({uniqueVals:{
+      ...this.state.uniqueVals,
+      [group]: [
+        ...checkedGroup.slice(0,indexToUpdate),
+        elementToUpdate,
+        ...checkedGroup.slice(indexToUpdate+1)
+      ]
+    }});
+  }
+
+  handleDataAfterFilter(filteredObj) { console.log(filteredObj);
     let keys = Object.keys(filteredObj).filter(key => {
-      // console.log(key);
       return filteredObj[key].length > 0;
     });
-    // console.log("keys filtered => ", keys);
     let data = [];
     this.state.data.forEach(row => {
-      keys.forEach(key => {
-        if (filteredObj[key] === row[key]) {
-          console.log(row);
+      keys.forEach(key => {// console.log('key =>', row.properties[key]);
+        if (filteredObj[key][0] === row.properties[key]) {
+          // console.log(row);
           data.push(row);
         }
       });
     });
     //remove eventual duplicates
     data = [...new Set(data)];
-    console.log(data);
-    this.setState({ data: data });
+    this.setState({ _data: data }, function(){
+      // console.log(this.state._data)
+    });
+    
   }
   progress() {
     //console.log();
@@ -268,7 +289,7 @@ class App extends Component {
       komkode +
       ",'2019-08-01','2019-08-31')&srs=4326";
     dataUrl = "data.json";
-    console.log(dataUrl);
+    // console.log(dataUrl);
     jQuery.ajax({
       url: dataUrl,
       type: "GET",
@@ -338,7 +359,7 @@ class App extends Component {
   handleDoneClick() {
     let { komkode, startDate, endDate } = this.state;
     this.getData(komkode, startDate, endDate);
-    console.log("before navigating");
+    // console.log("before navigating");
     navigate("#/" + komkode);
   }
 
@@ -355,10 +376,10 @@ class App extends Component {
   }
 
   render() {
-    console.log("props from router => ", this.props.komnr);
+    // console.log("props from router => ", this.props.komnr);
     const { value, startDate, endDate, kommuner, komkode } = this.state;
     const locale = "da";
-    console.log(this.state.uniqueVals);
+    // console.log(this.state.uniqueVals);
     return (
       <MuiThemeProvider theme={theme}>
         <div className="app">
@@ -372,6 +393,7 @@ class App extends Component {
             drawerOpen={this.state.drawerOpen}
             filterCols={this.state.uniqueVals}
             onDataFiltered={this.handleDataAfterFilter}
+            handleCheckedFilters={this.handleCheckedFilters}
           />
           <div className="">
             <AppBar position="static" color="default">
@@ -407,7 +429,7 @@ class App extends Component {
                             this.state.komkode === kom.komkode
                               ? "selected"
                               : false;
-                          if (selected) console.log(kom.komnavn);
+                          // if (selected) console.log(kom.komnavn);
                           return (
                             <option key={kom.komkode} value={kom.komkode}>
                               {kom.komnavn}
