@@ -46,6 +46,13 @@ import TemporaryDrawer from "./Drawer";
 
 moment.locale("da");
 
+/*
+TODO:
+1. use the filtered list to update the data
+2. add reset btn to the list
+3. Finish the table component to the extra requested columns
+*/
+
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
