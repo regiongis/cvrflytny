@@ -8,49 +8,41 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import IconButton from "@material-ui/core/IconButton";
 import DoneIcon from "@material-ui/icons/Done";
-// import FormGroup from '@material-ui/core/FormGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Switch from '@material-ui/core/Switch';
+
 import Typography from "@material-ui/core/Typography";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-// import CircularProgress from '@material-ui/core/CircularProgress';
-//import 'react-datepicker/dist/react-datepicker.css';
+
 import moment from "moment";
 import "moment/locale/da";
-// import Select from '@material-ui/core/Select';
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-// import { KeyboardArrowRight, KeyboardArrowLeft } from '@material-ui/icons';
 import CloudDownload from "@material-ui/icons/CloudDownload";
 import Map from "@material-ui/icons/Map";
 import TableChart from "@material-ui/icons/TableChart";
 import BarChart from "@material-ui/icons/BarChart";
-// import MomentUtils from 'material-ui-pickers/utils/moment-utils';
 import MomentUtils from "@date-io/moment";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { DatePicker } from "@material-ui/pickers";
-//import {hot} from 'react-hot-loader';
 import MapData from "./Map.js";
 import GridData from "./Grid.js";
 import GraphData from "./Graph.js";
-//import DataTable from "./DataTable";
-// import MaterialGrid from "./MaterialGrid";
+
 import "./App.css";
 import classnames from "classnames";
 import ReactExport from "react-data-export";
 import jQuery from "jquery";
 import { navigate } from "@reach/router";
 import FilterListIcon from "@material-ui/icons/FilterList";
-// import FilterComponent from "./FilterComponent";
 import TemporaryDrawer from "./Drawer";
 
 moment.locale("da");
 
 /*
 TODO:
-1. use the filtered list to update the data
-2. add reset btn to the list
-3. Finish the table component to the extra requested columns
+1. use the filtered list to update the data -- need to be done
+2. add reset btn to the list -- done
+3. Filteredrows to update csv_data. now excel is up to date -- done
+3. Finish the table component to the extra requested columns -- need to be done
 */
 
 const ExcelFile = ReactExport.ExcelFile;
@@ -128,7 +120,6 @@ TabContainer.propTypes = {
 class App extends Component {
   constructor(props) {
     super(props);
-    // console.log("komrn ", this.props.komnr);
     this.state = {
       value: 0,
       startDate: moment()
@@ -140,54 +131,52 @@ class App extends Component {
         .endOf("month")
         .format("YYYY-MM-DD"),
       data: [],
-      filteredData: [],
       kommuner: [],
       komkode: this.props.komnr, //'165',
-      Fraflytter: true,
-      Tilflytter: true,
-      Ophørt: true,
-      Nystartet: true,
-      csvData: [],
+     
+      csvData: [], // used for Excel print
       loading: true,
       completed: 0,
       canSendRequest: false,
       filterOpen: false,
       drawerOpen: false,
-      fieldsToFilter: {
-        cols: [
-          "status",
-          "hovedbranche",
-          "vejnavn",
-          "postnummer",
-          "postdistrikt",
-          "cvr-nummer"
-        ],
-        _data: {
-          status: [],
-          hovedbranche: [],
-          vejnavn: [],
-          postnummer: [],
-          postdistrikt: [],
-          "cvr-nummer": []
-        }
-      },
+      
       uniqueVals: {},
-      afterFilter: []
+      /*
+      This is the data which will be rendered and printed by the excel component.
+      All filtering will act on this array. 
+      The reset button will reset this arrat to 
+              dataToRender = this.state.data or this.state.csvData;
+      */
+      dataToRender: [] 
     };
 
-    this.theData = {};
     this.handleChange = this.handleChange.bind(this);
     this.handleStart = this.handleStart.bind(this);
     this.handleEnd = this.handleEnd.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-    this.handleChecked = this.handleChecked.bind(this);
-    this.progress = this.progress.bind(this);
     this.handleDoneClick = this.handleDoneClick.bind(this);
     this.handleFilterOpen = this.handleFilterOpen.bind(this);
     this.handleFilterClose = this.handleFilterClose.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
-    this.handleDataAfterFilter = this.handleDataAfterFilter.bind(this);
     this.handleCheckedFilters = this.handleCheckedFilters.bind(this);
+    this.reset = this.reset.bind(this);
+    this.updateRenderDataFromTable = this.updateRenderDataFromTable.bind(this);
+  }
+
+  updateRenderDataFromTable(filteredRows){
+    this.setState({csvData: filteredRows});
+  }
+
+  reset(){
+    this.setState({
+      dataToRender: this.state.data, 
+      uniqueVals: uniqueValuesGroupedByKey(this.state.csvData, [
+        "status",
+        "postnummer",
+        "postdistrikt"
+      ])
+    });
   }
 
   handleCheckedFilters(text, event){ //console.log('called with => ', text)
@@ -208,32 +197,6 @@ class App extends Component {
     }});
   }
 
-  handleDataAfterFilter(filteredObj) { console.log(filteredObj);
-    let keys = Object.keys(filteredObj).filter(key => {
-      return filteredObj[key].length > 0;
-    });
-    let data = [];
-    this.state.data.forEach(row => {
-      keys.forEach(key => {// console.log('key =>', row.properties[key]);
-        if (filteredObj[key][0] === row.properties[key]) {
-          // console.log(row);
-          data.push(row);
-        }
-      });
-    });
-    //remove eventual duplicates
-    data = [...new Set(data)];
-    this.setState({ _data: data }, function(){
-      // console.log(this.state._data)
-    });
-    
-  }
-  progress() {
-    //console.log();
-    let comp = this.state.completed;
-    this.setState({ completed: comp >= 100 ? 0 : comp + 1 });
-  }
-
   handleFilterOpen() {
     this.setState({ filterOpen: !this.state.filterOpen });
   }
@@ -244,27 +207,6 @@ class App extends Component {
 
   handleFilterClose() {
     this.setState({ filterOpen: false });
-  }
-
-  getCsv() {
-    const csv = this.state.data.map(feature => {
-      let s = feature.properties["fuldt ansvarlige deltagere"];
-      if (s !== null && s.length > 0) {
-        feature.properties["fuldt ansvarlige deltagere"] = s.replace(/"/g, "");
-      }
-      return feature.properties;
-    });
-    return csv;
-  }
-
-  filterData(feature) {
-    const { Fraflytter, Tilflytter, Ophørt, Nystartet } = this.state;
-    const checked = [];
-    if (Fraflytter) checked.push("Fraflytter");
-    if (Tilflytter) checked.push("Tilflytter");
-    if (Ophørt) checked.push("Ophørt");
-    if (Nystartet) checked.push("Nystartet");
-    return checked.indexOf(feature.properties.status) > -1;
   }
 
   getKommuner() {
@@ -302,11 +244,13 @@ class App extends Component {
       type: "GET",
       dataType: "json",
       success: function(res) {
-        that.setState(preveState => ({ data: res.features }));
+        //that.setState(preveState => ({ data: res.features }));
         // console.log(res.features);
         let csv = res.features.map(feature => feature.properties);
         that.setState(prevState => ({
           csvData: csv,
+          data: res.features,
+          dataToRender: res.features,
           loading: false,
           uniqueVals: uniqueValuesGroupedByKey(csv, [
             "status",
@@ -318,32 +262,6 @@ class App extends Component {
     });
   }
 
-  handleChecked(event) {
-    event.persist();
-    let { data, Fraflytter, Tilflytter, Ophørt, Nystartet } = this.state;
-    this.setState(
-      preveState => ({ [event.target.value]: event.target.checked }),
-      () => {
-        Fraflytter = this.state.Fraflytter;
-        Tilflytter = this.state.Tilflytter;
-        Ophørt = this.state.Ophørt;
-        Nystartet = this.state.Nystartet;
-      }
-    );
-
-    const _checked = [];
-    if (Fraflytter) _checked.push("Fraflytter");
-    if (Tilflytter) _checked.push("Tilflytter");
-    if (Ophørt) _checked.push("Ophørt");
-    if (Nystartet) _checked.push("Nystartet");
-
-    let newData = data.filter(feature => {
-      // console.log(feature.properties.status);
-      return _checked.indexOf(feature.properties.status) > -1;
-    });
-
-    this.setState({ data: newData });
-  }
   handleSelect(event) {
     event.persist();
     this.setState(prevState => ({ komkode: event.target.value }));
@@ -366,7 +284,6 @@ class App extends Component {
   handleDoneClick() {
     let { komkode, startDate, endDate } = this.state;
     this.getData(komkode, startDate, endDate);
-    // console.log("before navigating");
     navigate("#/" + komkode);
   }
 
@@ -383,24 +300,19 @@ class App extends Component {
   }
 
   render() {
-    // console.log("props from router => ", this.props.komnr);
     const { value, startDate, endDate, kommuner, komkode } = this.state;
     const locale = "da";
-    // console.log(this.state.uniqueVals);
     return (
       <MuiThemeProvider theme={theme}>
         <div className="app">
           <div className={this.state.loading ? "loading" : ""}></div>
-          {/* <FilterComponent
-            open={this.state.filterOpen}
-            handleOpen={this.handleFilterOpen}
-          /> */}
+          
           <TemporaryDrawer
             handleDrawer={this.handleDrawerOpen}
             drawerOpen={this.state.drawerOpen}
             filterCols={this.state.uniqueVals}
-            onDataFiltered={this.handleDataAfterFilter}
             handleCheckedFilters={this.handleCheckedFilters}
+            reset={this.reset}
           />
           <div className="">
             <AppBar position="static" color="default">
@@ -554,96 +466,30 @@ class App extends Component {
                   </Tooltip>
                 }
               />
-              {/* <Tab icon={
-                                    <Tooltip title="DataTable">
-                                        <DataTable/>
-                                  </Tooltip>
-                                
-                                } /> */}
+              
             </Tabs>
             {value === 0 && (
               <TabContainer>
-                <MapData data={this.state.data} />
+                <MapData data={this.state.dataToRender} />
               </TabContainer>
             )}
             {value === 1 && (
               <TabContainer>
-                <GridData data={this.state.data} />
-                {/* <MaterialGrid data={this.state.data} /> */}
+                <GridData data={this.state.dataToRender} updateData={this.updateRenderDataFromTable}/>
               </TabContainer>
             )}
             {value === 2 && (
               <TabContainer>
-                <GraphData data={this.state.data} />
+                <GraphData data={this.state.dataToRender} />
               </TabContainer>
             )}
-            {/* {value === 3 && <TabContainer><DataTable /></TabContainer>} */}
           </div>
         </div>
-        {/* <FormGroup row>
-                            <FormControlLabel 
-                                control={
-                                    <Switch
-                                        checked={this.state.Fraflytter}
-                                        onChange={this.handleChecked}
-                                        color="primary"
-                                        value="Fraflytter"
-                                    />
-                                }
-                                label="Fraflyttet"
-                            />
-                            <FormControlLabel 
-                                control={
-                                    <Switch
-                                        checked={this.state.Tilflytter}
-                                        onChange={this.handleChecked}
-                                        color="primary"
-                                        value="Tilflytter"
-                                    />
-                                }
-                                label="Tilflyttet"
-                            />
-                            <FormControlLabel 
-                                control={
-                                    <Switch
-                                        checked={this.state.Ophørt}
-                                        onChange={this.handleChecked}
-                                        color="primary"
-                                        value="Ophørt"
-                                    />
-                                }
-                                label="Ophørt"
-                            />
-                            <FormControlLabel 
-                                control={
-                                    <Switch
-                                        checked={this.state.Nystartet}
-                                        onChange={this.handleChecked}
-                                        color="primary"
-                                        value="Nystartet"
-                                    />
-                                }
-                                label="Nystartet"
-                            />
-                        </FormGroup> */}
+   
       </MuiThemeProvider>
     );
   }
 }
-/*
 
-{loading && <CircularProgress size={50} value={this.state.completed} color="primary" variant="determinate" className={classnames.progress} />} 
-*/
 export default withStyles(styles)(App);
 
-/*
-TODO: 
-
- First do the graph data with Victory library!!! then filters!!!!
- 1. Implement filters: use switches or dropdown with checkboxes.
- 
-
- Next => use filterData, til show only checked values
-
- FIX THE FILTERING OF DATA
-*/

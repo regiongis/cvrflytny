@@ -1,31 +1,28 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import {
+  Template,
+  TemplatePlaceholder,
+  TemplateConnector,
+} from "@devexpress/dx-react-core";
+
+import {
   SortingState,
   IntegratedSorting,
   FilteringState,
   IntegratedFiltering,
   DataTypeProvider
-  //  GroupingState,
-  // IntegratedGrouping
 } from "@devexpress/dx-react-grid";
+
 import {
   Grid,
-  // Table,
   VirtualTable,
   TableHeaderRow,
   TableFilterRow,
-  // TableColumnReordering,
   TableColumnResizing
-  // TableGroupRow,
-  // GroupingPanel,
-  // DragDropProvider,
-  // Toolbar
 } from "@devexpress/dx-react-grid-material-ui";
-//import axios from "axios";
 
 const getColor = status => {
-  //console.log('status = ',status);
   if (status === "Fraflytter") return "orange";
   else if (status === "Tilflytter") return "green";
   else if (status === "Nystartet") return "blue";
@@ -43,7 +40,6 @@ const StatusTypeProvider = props => (
 );
 
 const PnummerFormatter = ({ value }) => {
-  //console.log("reach pnummer =>", value);
   let link = `https://datacvr.virk.dk/data/visenhed?enhedstype=produktionsenhed&id=${value}`;
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
@@ -56,29 +52,10 @@ const PnummerProvider = props => (
   <DataTypeProvider formatterComponent={PnummerFormatter} {...props} />
 );
 
-// const HighlightedCell = ({ value, style }) => {
-//   let color = getColor(value);
-//   return (
-//     <Table.Cell
-//       style={{
-//         backgroundColor: color
-//       }}
-//     ></Table.Cell>
-//   );
-// };
 
 const getRowId = row => {
-  //  console.log('row id => ',row['cvr-nummer']);
   return row["keyIndex"];
 };
-
-// const Cell = props => {
-//   const { column } = props;
-//   if (column.name === "status") {
-//     return <HighlightedCell {...props} />;
-//   }
-//   return <Table.Cell {...props} />;
-// };
 
 class GridData extends React.PureComponent {
   constructor(props) {
@@ -100,6 +77,7 @@ class GridData extends React.PureComponent {
   componentDidUpdate() {}
 
   render() {
+    const updateData = this.props.updateData;
     const cols = [
       { name: "status", title: "Status" },
       { name: "cvr-nummer", title: "CVR nummer" },
@@ -134,7 +112,6 @@ class GridData extends React.PureComponent {
 
     const { statusColumns } = this.state;
     const pc = this.state.pcols;
-    //console.log(pc);
     const rows = this.props.data.map((feature, index) => {
       feature.properties["keyIndex"] = index;
       if (
@@ -164,9 +141,6 @@ class GridData extends React.PureComponent {
           getRowId={getRowId}
           style={{
             height: "100%"
-            //flexGrow: 1,
-            //display: "flex",
-            //flexWrap: "wrap"
           }}
         >
           <FilteringState defaultFilters={[]} />
@@ -181,6 +155,16 @@ class GridData extends React.PureComponent {
           <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
           <TableHeaderRow showSortingControls />
           <TableFilterRow />
+          <Template name="root">  
+            <TemplateConnector>  
+              {({ rows: filteredRows }) => { 
+                console.log("filteredRows"); 
+                console.log(filteredRows);
+                updateData(filteredRows);  
+                return <TemplatePlaceholder />;  
+              }}  
+            </TemplateConnector>  
+          </Template>
         </Grid>
       </Paper>
     );
