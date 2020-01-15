@@ -4,6 +4,7 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -30,6 +31,7 @@ export default function TemporaryDrawer(props) {
   const filterCols = props.filterCols;
   const handleCheckedFilters = props.handleCheckedFilters;
   const reset = props.reset;
+  const doFilter = props.doFilter;
 
   const [opened, setOpened] = React.useState({
     status: false,
@@ -72,11 +74,15 @@ export default function TemporaryDrawer(props) {
       <div className={classes.list} role="presentation">
         <List>
         <ListItem>
-            <ListItemText primary="" />
+            <ListItemIcon>
+              <Button variant="contained" color="primary" size="small" onClick={doFilter}>
+                Filtrere
+              </Button>
+            </ListItemIcon>
             <ListItemSecondaryAction>
-            <Button variant="contained" color="secondary" size="small" onClick={reset}>
-              Reset
-            </Button>
+              <Button variant="contained" color="secondary" size="small" onClick={reset}>
+                Reset
+              </Button>
             </ListItemSecondaryAction>
           </ListItem>
         </List>

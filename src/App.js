@@ -39,10 +39,12 @@ moment.locale("da");
 
 /*
 TODO:
-1. use the filtered list to update the data -- need to be done
+1. use the filtered list to update the data -- done
 2. add reset btn to the list -- done
 3. Filteredrows to update csv_data. now excel is up to date -- done
 3. Finish the table component to the extra requested columns -- need to be done
+4. Fix map renderfeatures when data is empty
+5. make list to filter generic, not hard coded
 */
 
 const ExcelFile = ReactExport.ExcelFile;
@@ -162,6 +164,37 @@ class App extends Component {
     this.handleCheckedFilters = this.handleCheckedFilters.bind(this);
     this.reset = this.reset.bind(this);
     this.updateRenderDataFromTable = this.updateRenderDataFromTable.bind(this);
+    this.doFilter = this.doFilter.bind(this);
+  }
+
+  doFilter(){
+    const uniqueVals = this.state.uniqueVals;
+    const filteredCategories = Object.keys(uniqueVals);
+    // console.log(filteredCategories);
+    let filters = {};
+     filteredCategories.forEach(cat =>{
+      let temp = uniqueVals[cat];
+      // console.log(temp)
+      filters[cat] = temp.filter(obj => {
+        return Object.values(obj)[0] === true;
+      })
+     .map(elem => {
+        return Object.keys(elem)[0];
+      }); 
+     });
+     const dataToRender = this.state.dataToRender;
+     const data = dataToRender.filter(row => {
+      let res = true;
+      filteredCategories.forEach(key =>{
+      //  console.log(row.properties[key]);
+      if(filters[key].length > 0 
+        && filters[key].indexOf(row.properties[key]) === -1)
+             res = false;
+      });
+      return res;
+     });
+     this.setState({dataToRender : data});
+     
   }
 
   updateRenderDataFromTable(filteredRows){
@@ -171,7 +204,9 @@ class App extends Component {
   reset(){
     this.setState({
       dataToRender: this.state.data, 
-      uniqueVals: uniqueValuesGroupedByKey(this.state.csvData, [
+      uniqueVals: uniqueValuesGroupedByKey(
+        this.state.data.map(feature => feature.properties), 
+        [
         "status",
         "postnummer",
         "postdistrikt"
@@ -313,6 +348,7 @@ class App extends Component {
             filterCols={this.state.uniqueVals}
             handleCheckedFilters={this.handleCheckedFilters}
             reset={this.reset}
+            doFilter={this.doFilter}
           />
           <div className="">
             <AppBar position="static" color="default">
