@@ -50,6 +50,7 @@ TODO:
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
+const filterWords = ["status", "virksomhedsform", "hovedbranche"];
 
 const styles = theme => ({
   root: {
@@ -90,6 +91,52 @@ function uniqueValues(colValues) {
   let vals = [...new Set(colValues)];
   // console.log(vals);
   return vals;
+}
+
+const getVirkForm = form =>{
+  switch(form){
+    case 10 : return "Enkeltmandsvirksomhed";
+    case 15 : return "Personligt ejet Mindre Virksomhed";
+    case 20 : return "Dødsbo";
+    case 30 : return "Interessentskab";
+    case 40 : return "Kommanditselskab";
+    case 45 : return "Medarbejderinvesteringsselskab";
+    case 50 : return "Partrederi";
+    case 60 : return "Aktieselskab";
+    case 70 : return "Kommanditaktieselskab/Partnerskab";
+    case 80 : return "Anpartsselskab";
+    case 81 : return "Iværksætterselskab";
+    case 90 : return "Fond";
+    case 100 : return "Erhvervsdrivende fond";
+    case 110 : return "Forening";
+    case 115 : return "Frivillig forening";
+    case 130 : return "Andelselskab(-forening)";
+    case 140 : return "Andelselskab(-forening) med begrænset ansvar";
+    case 150 : return "Forening eller selskab med begrænset ansvar";
+    case 151 : return "Selskab med begrænset ansvar";
+    case 152 : return "Forening med begrænset ansvar";
+    case 160 : return "Europæisk Økonomisk Firmagruppe";
+    case 170 : return "Filial af udenlandsk aktieselskab, kommanditakties";
+    case 180 : return "Filial af udenlandsk anpartselskab eller selskab";
+    case 190 : return "Filial af udenlandsk virksomhed med begrænset ansv";
+    case 195 : return "SCE-selskab";
+    case 196 : return "Filial af SCE-selskab";
+    case 200 : return "Filial af anden udenlandsk virksomhed";
+    case 210 : return "Anden udenlandsk virksomhed";
+    case 220 : return "Fast forretningssted af Europæisk økonomisk Firmag";
+    case 230 : return "Offentlige arbejdsplads";
+    case 235 : return "Offentlige arbejdsplads";
+    case 245 : return "Offentlige arbejdsplads";
+    case 250 : return "Offentlige arbejdsplads";
+    case 260 : return "Folkekirkelige institutioner";
+    case 270 : return "Enhed under oprettelse i Erhvervs- og Selskabsstyr";
+    case 280 : return "Øvrige virksomhedsformer";
+    case 285 : return "Særlig finansiel virksomhedsform";
+    case 290 : return "SE-selskab";
+    case 291 : return "Filial af SE-selskab";
+    case 990 : return "Uoplyst virksomhedsform";
+    default : return form;
+  }
 }
 
 function uniqueValuesGroupedByKey(arrOfObj, keys) {
@@ -198,6 +245,7 @@ class App extends Component {
   }
 
   updateRenderDataFromTable(filteredRows){
+    console.log('filtered rows');
     this.setState({csvData: filteredRows});
   }
 
@@ -206,11 +254,8 @@ class App extends Component {
       dataToRender: this.state.data, 
       uniqueVals: uniqueValuesGroupedByKey(
         this.state.data.map(feature => feature.properties), 
-        [
-        "status",
-        "postnummer",
-        "postdistrikt"
-      ])
+        filterWords
+        )
     });
   }
 
@@ -271,27 +316,27 @@ class App extends Component {
     let dataUrl =
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad_dev(" +
       komkode +
-      ",'2019-08-01','2019-08-31')&srs=4326";
-    dataUrl = "data.json";
+      ",'"+ startDate +"','"+ endDate +"')&srs=4326";
+    //dataUrl = "data.json";
     // console.log(dataUrl);
     jQuery.ajax({
       url: dataUrl,
       type: "GET",
-      dataType: "json",
+      dataType: "jsonp",
       success: function(res) {
         //that.setState(preveState => ({ data: res.features }));
         // console.log(res.features);
         let csv = res.features.map(feature => feature.properties);
+        res.features.forEach(feature => {
+          let form = feature.properties.virksomhedsform;
+          feature.properties.virksomhedsform = getVirkForm(form);
+        });
         that.setState(prevState => ({
           csvData: csv,
           data: res.features,
           dataToRender: res.features,
           loading: false,
-          uniqueVals: uniqueValuesGroupedByKey(csv, [
-            "status",
-            "postnummer",
-            "postdistrikt"
-          ])
+          uniqueVals: uniqueValuesGroupedByKey(csv,filterWords)
         }));
       }
     });
@@ -349,6 +394,7 @@ class App extends Component {
             handleCheckedFilters={this.handleCheckedFilters}
             reset={this.reset}
             doFilter={this.doFilter}
+            filterWords={filterWords}
           />
           <div className="">
             <AppBar position="static" color="default">
@@ -453,11 +499,13 @@ class App extends Component {
                           <ExcelColumn label="CVR nummer" value="cvr-nummer" />
                           <ExcelColumn label="P nummer" value="p-nummer" />
                           <ExcelColumn label="Branche" value="hovedbranche" />
+                          <ExcelColumn label="virksomhedsform" value="virksomhedsform" />
                           <ExcelColumn label="Virksomhedsnavn" value="navn" />
                           <ExcelColumn
                             label="Kontaktperson"
                             value="fuldt ansvarlige deltagere"
                           />
+                          <ExcelColumn label="kvartalbes_interval" value="Antal ansatte" />
                           <ExcelColumn
                             label="Kommunekode"
                             value="kommunekode"

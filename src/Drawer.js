@@ -32,6 +32,7 @@ export default function TemporaryDrawer(props) {
   const handleCheckedFilters = props.handleCheckedFilters;
   const reset = props.reset;
   const doFilter = props.doFilter;
+  const filterWords = props.filterWords;
 
   const [opened, setOpened] = React.useState({
     status: false,
@@ -109,7 +110,7 @@ export default function TemporaryDrawer(props) {
     <div>
       {/* <Button onClick={toggleDrawer('right', true)}>Open Right</Button> */}
       <Drawer anchor="right" open={props.drawerOpen} onClose={handleDrawer}>
-        {sideList(["status", "postdistrikt", "postnummer"], filterCols)}
+        {sideList(filterWords, filterCols)}
       </Drawer>
     </div>
   );
