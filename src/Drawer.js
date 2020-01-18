@@ -82,7 +82,7 @@ export default function TemporaryDrawer(props) {
             </ListItemIcon>
             <ListItemSecondaryAction>
               <Button variant="contained" color="secondary" size="small" onClick={reset}>
-                Reset
+                Nulstil
               </Button>
             </ListItemSecondaryAction>
           </ListItem>

@@ -57,52 +57,6 @@ const getRowId = row => {
   return row["keyIndex"];
 };
 
-const getVirkForm = form =>{
-  switch(form){
-    case 10 : return "Enkeltmandsvirksomhed";
-    case 15 : return "Personligt ejet Mindre Virksomhed";
-    case 20 : return "Dødsbo";
-    case 30 : return "Interessentskab";
-    case 40 : return "Kommanditselskab";
-    case 45 : return "Medarbejderinvesteringsselskab";
-    case 50 : return "Partrederi";
-    case 60 : return "Aktieselskab";
-    case 70 : return "Kommanditaktieselskab/Partnerskab";
-    case 80 : return "Anpartsselskab";
-    case 81 : return "Iværksætterselskab";
-    case 90 : return "Fond";
-    case 100 : return "Erhvervsdrivende fond";
-    case 110 : return "Forening";
-    case 115 : return "Frivillig forening";
-    case 130 : return "Andelselskab(-forening)";
-    case 140 : return "Andelselskab(-forening) med begrænset ansvar";
-    case 150 : return "Forening eller selskab med begrænset ansvar";
-    case 151 : return "Selskab med begrænset ansvar";
-    case 152 : return "Forening med begrænset ansvar";
-    case 160 : return "Europæisk Økonomisk Firmagruppe";
-    case 170 : return "Filial af udenlandsk aktieselskab, kommanditakties";
-    case 180 : return "Filial af udenlandsk anpartselskab eller selskab";
-    case 190 : return "Filial af udenlandsk virksomhed med begrænset ansv";
-    case 195 : return "SCE-selskab";
-    case 196 : return "Filial af SCE-selskab";
-    case 200 : return "Filial af anden udenlandsk virksomhed";
-    case 210 : return "Anden udenlandsk virksomhed";
-    case 220 : return "Fast forretningssted af Europæisk økonomisk Firmag";
-    case 230 : return "Offentlige arbejdsplads";
-    case 235 : return "Offentlige arbejdsplads";
-    case 245 : return "Offentlige arbejdsplads";
-    case 250 : return "Offentlige arbejdsplads";
-    case 260 : return "Folkekirkelige institutioner";
-    case 270 : return "Enhed under oprettelse i Erhvervs- og Selskabsstyr";
-    case 280 : return "Øvrige virksomhedsformer";
-    case 285 : return "Særlig finansiel virksomhedsform";
-    case 290 : return "SE-selskab";
-    case 291 : return "Filial af SE-selskab";
-    case 990 : return "Uoplyst virksomhedsform";
-    default : return form;
-  }
-}
-
 class GridData extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -169,15 +123,6 @@ class GridData extends React.PureComponent {
         feature.properties['fuldt ansvarlige deltagere'] = s.replace(/\"/g,'');
       if(s === "NULL")
         feature.properties['fuldt ansvarlige deltagere'] = "";
-      // let form = feature.properties.virksomhedsform;
-      // feature.properties.virksomhedsform = getVirkForm(form);
-      // if (
-      //   [230, 235, 245, 250].includes(form)
-      // ) {
-      //   feature.properties.virksomhedsform = "Offentlige arbejdspladser";
-        
-      // }
-      // if(form === 81) feature.properties.virksomhedsform = "IVS";
       return feature.properties;
     });
 

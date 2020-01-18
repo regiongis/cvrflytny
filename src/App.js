@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import IconButton from "@material-ui/core/IconButton";
-import DoneIcon from "@material-ui/icons/Done";
+import SendIcon from "@material-ui/icons/Send";
 
 import Typography from "@material-ui/core/Typography";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -34,6 +34,7 @@ import jQuery from "jquery";
 import { navigate } from "@reach/router";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import TemporaryDrawer from "./Drawer";
+import Alert from "./Alert";
 
 moment.locale("da");
 
@@ -181,7 +182,7 @@ class App extends Component {
         .format("YYYY-MM-DD"),
       data: [],
       kommuner: [],
-      komkode: this.props.komnr, //'165',
+      komkode: this.props.komnr,// || '165',
      
       csvData: [], // used for Excel print
       loading: true,
@@ -189,7 +190,8 @@ class App extends Component {
       canSendRequest: false,
       filterOpen: false,
       drawerOpen: false,
-      
+      alertOpen: false,
+      alertMessage: '',
       uniqueVals: {},
       /*
       This is the data which will be rendered and printed by the excel component.
@@ -212,6 +214,11 @@ class App extends Component {
     this.reset = this.reset.bind(this);
     this.updateRenderDataFromTable = this.updateRenderDataFromTable.bind(this);
     this.doFilter = this.doFilter.bind(this);
+    this.onAlertClose = this.onAlertClose.bind(this);
+  }
+
+  onAlertClose(){
+    this.setState({alertOpen: false});
   }
 
   doFilter(){
@@ -240,7 +247,13 @@ class App extends Component {
       });
       return res;
      });
-     this.setState({dataToRender : data});
+     const message = `${data.length} ud af ${this.state.data.length}`;
+     this.setState({
+       dataToRender : data, 
+       drawerOpen : false,
+       alertMessage: message,
+       alertOpen: true
+      });
      
   }
 
@@ -317,12 +330,12 @@ class App extends Component {
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad_dev(" +
       komkode +
       ",'"+ startDate +"','"+ endDate +"')&srs=4326";
-    //dataUrl = "data.json";
+    dataUrl = "data.json";
     // console.log(dataUrl);
     jQuery.ajax({
       url: dataUrl,
       type: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       success: function(res) {
         //that.setState(preveState => ({ data: res.features }));
         // console.log(res.features);
@@ -363,6 +376,7 @@ class App extends Component {
 
   handleDoneClick() {
     let { komkode, startDate, endDate } = this.state;
+    if(!komkode) komkode = 165;
     this.getData(komkode, startDate, endDate);
     navigate("#/" + komkode);
   }
@@ -396,11 +410,17 @@ class App extends Component {
             doFilter={this.doFilter}
             filterWords={filterWords}
           />
+
+          <Alert 
+            open={this.state.alertOpen}
+            message={this.state.alertMessage}
+            onClose={this.state.onAlertClose}
+          />
           <div className="">
             <AppBar position="static" color="default">
               <Toolbar>
                 <Grid container /*spacing={}*/>
-                  <Grid item xs={2}>
+                  <Grid item xs={3}>
                     <Typography variant="h6" color="inherit">
                       CVR Flyttemønster
                     </Typography>
@@ -464,25 +484,77 @@ class App extends Component {
                       />
                     </MuiPickersUtilsProvider>
                   </Grid>
-                  <Grid item xs={2}>
+                  {/* <Grid item xs={1}></Grid> */}
+                  <Grid item xs={3}>
                     <IconButton
                       arial-label="Done"
                       onClick={this.handleDoneClick}
                     >
-                      <DoneIcon />
+                      <Tooltip title="Send">
+                        <SendIcon />
+                      </Tooltip>
                     </IconButton>
+                    <IconButton
+                      arial-label="Filter"
+                      onClick={this.handleDrawerOpen}
+                    >
+                      <Tooltip title="Filter">
+                        <FilterListIcon />
+                      </Tooltip>
+                    </IconButton>
+                    {this.state.csvData.length > 0 && (
+                      <ExcelFile
+                        element={
+                          <IconButton arial-label="Excel">
+                            <Tooltip title="Download Excel">
+                              <CloudDownload />
+                            </Tooltip>
+                          </IconButton>
+                        }
+                        filename={
+                          "export_" + komkode + "_" + startDate + "_" + endDate
+                        }
+                      >
+                        <ExcelSheet data={this.state.csvData} name="CVR">
+                          <ExcelColumn label="Status" value="status" />
+                          <ExcelColumn label="CVR nummer" value="cvr-nummer" />
+                          <ExcelColumn label="P nummer" value="p-nummer" />
+                          <ExcelColumn label="Branche" value="hovedbranche" />
+                          <ExcelColumn label="virksomhedsform" value="virksomhedsform" />
+                          <ExcelColumn label="Virksomhedsnavn" value="navn" />
+                          <ExcelColumn
+                            label="Kontaktperson"
+                            value="fuldt ansvarlige deltagere"
+                          />
+                          <ExcelColumn label="kvartalbes_interval" value="Antal ansatte" />
+                          <ExcelColumn
+                            label="Kommunekode"
+                            value="kommunekode"
+                          />
+                          <ExcelColumn label="vejnavn" value="vejnavn" />
+                          <ExcelColumn label="Husnummer" value="husnummer" />
+                          <ExcelColumn label="Postnummer" value="postnummer" />
+                          <ExcelColumn label="By" value="postdistrikt" />
+                          <ExcelColumn label="Email" value="emailadresse" />
+                          <ExcelColumn
+                            label="Indlæst dato"
+                            value="indlæst dato"
+                          />
+                        </ExcelSheet>
+                      </ExcelFile>
+                    )}                
                   </Grid>
 
-                  <Grid item xs={2}>
+                  {/* <Grid item xs={2}>
                     <IconButton
                       arial-label="Filter"
                       onClick={this.handleDrawerOpen}
                     >
                       <FilterListIcon />
                     </IconButton>
-                  </Grid>
+                  </Grid> */}
 
-                  <Grid item xs={2}>
+                  {/* <Grid item xs={2}>
                     {this.state.csvData.length > 0 && (
                       <ExcelFile
                         element={
@@ -522,7 +594,7 @@ class App extends Component {
                         </ExcelSheet>
                       </ExcelFile>
                     )}
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Toolbar>
             </AppBar>
