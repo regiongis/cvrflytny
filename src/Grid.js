@@ -78,6 +78,8 @@ class GridData extends React.PureComponent {
 
   render() {
     const updateData = this.props.updateData;
+    const total = this.props.total;
+    const totalRendered = this.props.totalRendered;
     const cols = [
       { name: "status", title: "Status" },
       { name: "cvr-nummer", title: "CVR nummer" },
@@ -133,6 +135,7 @@ class GridData extends React.PureComponent {
           height: "600px"
         }}
       >
+  <h6 style={{textAlign:"center"}}>{`${totalRendered} ud af ${total}`}</h6>
         <Grid
           rows={rows}
           columns={cols}

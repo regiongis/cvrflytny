@@ -32,8 +32,8 @@ class MapData extends React.Component {
       }
     );
     map = L.map("map", {
-      center: [55.2, 12.2],
-      zoom: 8,
+      center: [55.876823, 9.961644],//[55.2, 12.2],
+      zoom: 7,
       layers: [
         // L.tileLayer(
         //   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
