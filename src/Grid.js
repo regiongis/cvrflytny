@@ -93,6 +93,7 @@ class GridData extends React.PureComponent {
       { name: "postnummer", title: "Postnummer" },
       { name: "postdistrikt", title: "By" },
       { name: "emailadresse", title: "Email" },
+      { name: "startdato", title: "Startdato cvr" },
       { name: "indlæst dato", title: "Indlæst dato" }
     ];
 
@@ -111,6 +112,7 @@ class GridData extends React.PureComponent {
       { columnName: "postnummer", width: 120 },
       { columnName: "postdistrikt", width: 120 },
       { columnName: "emailadresse", width: 120 },
+      { columnName: "startdato", width: 120 },
       { columnName: "indlæst dato", width: 120 }
     ];
 

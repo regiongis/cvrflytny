@@ -90,7 +90,6 @@ const theme = createMuiTheme({
 //TODO: complete the select  comp!!!
 function uniqueValues(colValues) {
   let vals = [...new Set(colValues)];
-  // console.log(vals);
   return vals;
 }
 
@@ -141,8 +140,6 @@ const getVirkForm = form =>{
 }
 
 function uniqueValuesGroupedByKey(arrOfObj, keys) {
-  // const keys = Object.keys(arrOfObj[0]);
-  //console.log(keys);
   let ret = {};
 
   function uniqueElemsOfSameKey(_arrOfObj, key) {
@@ -258,7 +255,6 @@ class App extends Component {
   }
 
   updateRenderDataFromTable(filteredRows){
-    console.log('filtered rows');
     this.setState({csvData: filteredRows});
   }
 
@@ -330,12 +326,12 @@ class App extends Component {
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad_dev(" +
       komkode +
       ",'"+ startDate +"','"+ endDate +"')&srs=4326";
-    dataUrl = "data.json";
+    //dataUrl = "data.json";
     // console.log(dataUrl);
     jQuery.ajax({
       url: dataUrl,
       type: "GET",
-      dataType: "json",
+      dataType: "jsonp",
       success: function(res) {
         //that.setState(preveState => ({ data: res.features }));
         // console.log(res.features);
@@ -343,6 +339,9 @@ class App extends Component {
         res.features.forEach(feature => {
           let form = feature.properties.virksomhedsform;
           feature.properties.virksomhedsform = getVirkForm(form);
+          let _startdato = feature.properties.startdato;
+          feature.properties.startdato = (_startdato && _startdato.length > 0) ?
+                    _startdato.substring(0,10) : '';
         });
         that.setState(prevState => ({
           csvData: csv,
@@ -411,11 +410,11 @@ class App extends Component {
             filterWords={filterWords}
           />
 
-          <Alert 
+          {/* <Alert 
             open={this.state.alertOpen}
             message={this.state.alertMessage}
             onClose={this.state.onAlertClose}
-          />
+          /> */}
           <div className="">
             <AppBar position="static" color="default">
               <Toolbar>
