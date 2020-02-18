@@ -89,13 +89,14 @@ class GraphData extends React.Component {
 
     return (
       <div>
-        <Paper style={{ height: "auto" }}>
+        <Paper style={{ height: 800, width:800, margin:'auto' }}>
+
           <VictoryChart
             height={200}
             width={300}
             // domainPadding={{ x: 50, y: [0, 20] }}
             theme={VictoryTheme.material}
-            domainPadding={6}
+            domainPadding={15}
             // scale={{ x: "time" }}
           >
             <VictoryBar
