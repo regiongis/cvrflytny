@@ -47,22 +47,24 @@ class MapData extends React.Component {
         attribution: myAttributionText
       }
     );
+
+    var kommuneWms = L.tileLayer.wms(
+      "https://services.kortforsyningen.dk/service?request=GetCapabilities&servicename=dagi"
+       +"&service=WMS&version=1.1.1",
+       {
+         layers:"kommune",
+         format:"image/png",
+         token: kftoken,
+         transparent:true
+
+       }
+    );
     map = L.map("map", {
       center: [55.876823, 9.961644],//[55.2, 12.2],
       zoom: 7,
       layers: [
-        // L.tileLayer(
-        //   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
-        //   {
-        //     attribution:
-        //       'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        //     maxZoom: 14,
-        //     id: "baffioso.ie1ok8lg",
-        //     accessToken:
-        //       "pk.eyJ1IjoiYmFmZmlvc28iLCJhIjoiT1JTS1lIMCJ9.f5ubY91Bi42yPnTrgiq-Gw"
-        //   }
-        // )
-        toposkaermkortwmts
+        toposkaermkortwmts,
+        kommuneWms,
       ]
     });
 

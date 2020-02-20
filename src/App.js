@@ -326,7 +326,7 @@ class App extends Component {
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad_dev(" +
       komkode +
       ",'"+ startDate +"','"+ endDate +"')&srs=4326";
-   // dataUrl = "data.json";
+    //dataUrl = "data.json";
     // console.log(dataUrl);
     jQuery.ajax({
       url: dataUrl,
