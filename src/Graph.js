@@ -89,29 +89,33 @@ class GraphData extends React.Component {
 
     return (
       <div>
-        <Paper style={{ height: "600px" }}>
+        <Paper style={{ height: 800, width:800, margin:'auto' }}>
+
           <VictoryChart
             height={200}
-            width={200}
-            domainPadding={{ x: 50, y: [0, 20] }}
+            width={300}
+            // domainPadding={{ x: 50, y: [0, 20] }}
             theme={VictoryTheme.material}
-            //domainPadding={10}
+            domainPadding={15}
             // scale={{ x: "time" }}
           >
             <VictoryBar
+              // barRatio={0.4}
+              barWidth={8}
               dataComponent={<Bar events={{ onMouseOver: handleMouseOver }} />}
               style={{
                 data: {
                   fill: d => {
-                    if (d.x === "Fraflytter") return "orange";
-                    if (d.x === "Tilflytter") return "green";
-                    if (d.x === "Ophørt") return "red";
-                    if (d.x === "Nystartet") return "blue";
+                    //console.log("inside fill ", d);
+                    if (d.datum.x === "Fraflytter") return "orange";
+                    if (d.datum.x === "Tilflytter") return "green";
+                    if (d.datum.x === "Ophørt") return "red";
+                    if (d.datum.x === "Nystartet") return "blue";
                   }
                 }
               }}
               data={catData}
-              labels={d => d.y}
+              labels={d => d.datum.y}
             />
           </VictoryChart>
         </Paper>

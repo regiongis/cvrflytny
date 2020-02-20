@@ -10,15 +10,31 @@ const style = {
 var geojsonLayer;
 var map;
 
+var legend = L.control({ position: "bottomleft" });
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML += "<h4>Signaturforklaring</h4>";
+  div.innerHTML +=
+    '<i style="background:#0020d7"></i><span>NyStartet</span><br>';
+  div.innerHTML +=
+    '<i style="background:#d79700"></i><span>Fraflyttet</span><br>';
+  div.innerHTML +=
+    '<i style="background:#298b30"></i><span>Tilflyttet</span><br>';
+  div.innerHTML +=
+    '<i style="background:#c10a0a"></i><span>Ophørt</span><br>';
+  return div;
+};
+
 class MapData extends React.Component {
   constructor(props) {
     super(props); // console.log(props.data);
     this.state = {
-      data: {}
+      data: {},
+      renderLegend: false
     };
   }
 
-  renderMap() {
+  renderMap(data) {
     var myAttributionText =
       '&copy; <a target="_blank" href="https://download.kortforsyningen.dk/content/vilk%C3%A5r-og-betingelser">Styrelsen for Dataforsyning og Effektivisering</a>';
     var kftoken = "d12107f70a3ee93153f313c7c502169a";
@@ -31,45 +47,51 @@ class MapData extends React.Component {
         attribution: myAttributionText
       }
     );
+
+    var kommuneWms = L.tileLayer.wms(
+      "https://services.kortforsyningen.dk/service?request=GetCapabilities&servicename=dagi"
+       +"&service=WMS&version=1.1.1",
+       {
+         layers:"kommune",
+         format:"image/png",
+         token: kftoken,
+         transparent:true
+
+       }
+    );
     map = L.map("map", {
-      center: [55.2, 12.2],
-      zoom: 8,
+      center: [55.876823, 9.961644],//[55.2, 12.2],
+      zoom: 7,
       layers: [
-        // L.tileLayer(
-        //   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
-        //   {
-        //     attribution:
-        //       'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        //     maxZoom: 14,
-        //     id: "baffioso.ie1ok8lg",
-        //     accessToken:
-        //       "pk.eyJ1IjoiYmFmZmlvc28iLCJhIjoiT1JTS1lIMCJ9.f5ubY91Bi42yPnTrgiq-Gw"
-        //   }
-        // )
-        toposkaermkortwmts
+        toposkaermkortwmts,
+        kommuneWms,
       ]
     });
 
-    var legend = L.control({ position: "bottomleft" });
-    legend.onAdd = function(map) {
-      var div = L.DomUtil.create("div", "legend");
-      div.innerHTML += "<h4>Signaturforklaring</h4>";
-      div.innerHTML +=
-        '<i style="background:#0020d7"></i><span>NyStartet</span><br>';
-      div.innerHTML +=
-        '<i style="background:#d79700"></i><span>Fraflyttet</span><br>';
-      div.innerHTML +=
-        '<i style="background:#298b30"></i><span>Tilflyttet</span><br>';
-      div.innerHTML +=
-        '<i style="background:#c10a0a"></i><span>Ophørt</span><br>';
-      return div;
-    };
-    legend.addTo(map);
+    // var legend = L.control({ position: "bottomleft" });
+    // legend.onAdd = function(map) {
+    //   var div = L.DomUtil.create("div", "legend");
+    //   div.innerHTML += "<h4>Signaturforklaring</h4>";
+    //   div.innerHTML +=
+    //     '<i style="background:#0020d7"></i><span>NyStartet</span><br>';
+    //   div.innerHTML +=
+    //     '<i style="background:#d79700"></i><span>Fraflyttet</span><br>';
+    //   div.innerHTML +=
+    //     '<i style="background:#298b30"></i><span>Tilflyttet</span><br>';
+    //   div.innerHTML +=
+    //     '<i style="background:#c10a0a"></i><span>Ophørt</span><br>';
+    //   return div;
+    // };
+    // if(this.state.renderLegend){
+    //   legend.addTo(map);
+    // }
 
-    L.control.scale().addTo(map);
+     L.control.scale().addTo(map);
   }
   renderFeatures(data) {
     //console.log('renderfeatures'); console.log(data);
+   // this.setState({renderLegend : true});
+   legend.addTo(map);
     var costumIcon = function(status) {
       function selector(status) {
         switch (status) {
@@ -128,11 +150,11 @@ class MapData extends React.Component {
     }).addTo(map);
 
     let centerCoords = getCenterPoint(data);
-    if (centerCoords) map.setView([centerCoords[1], centerCoords[0]]);
+    if (centerCoords) map.setView([centerCoords[1], centerCoords[0]], 12);
     else map.fitBounds(geojsonLayer.getBounds());
   }
   componentDidMount() {
-    this.renderMap();
+    this.renderMap(this.props.data);
     if (this.props.data.length > 0) {
       this.renderFeatures(this.props.data);
     }
