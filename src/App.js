@@ -302,12 +302,12 @@ class App extends Component {
     let komUrl =
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, " +
       "komnavn from data.kommune group by komkode, komnavn order by komnavn";
-    komUrl = "kom.json";
+   // komUrl = "kom.json";
     let that = this;
     jQuery.ajax({
       url: komUrl,
       type: "GET",
-      dataType: "json",
+      dataType: "jsonp",
       success: function(res) {
         let koms = res.features.map(feature => feature.properties);
         that.setState(preveState => ({ kommuner: koms }));
