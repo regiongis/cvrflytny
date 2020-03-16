@@ -125,7 +125,7 @@ class MapData extends React.Component {
         ["Nystartet", ""].includes(feature.properties.status)
       );
       if (features.length === 0) return null;
-      return features[0].geometry.coordinates;
+      return features[0].geometry !== null ? features[0].geometry.coordinates : null;
     }
     function onEachFeature(feature, layer) {
       layer.bindPopup(
@@ -150,8 +150,14 @@ class MapData extends React.Component {
     }).addTo(map);
 
     let centerCoords = getCenterPoint(data);
-    if (centerCoords) map.setView([centerCoords[1], centerCoords[0]], 12);
-    else map.fitBounds(geojsonLayer.getBounds());
+    if (centerCoords){
+      map.setView([centerCoords[1], centerCoords[0]], 12);
+    }else{
+      let bounds = geojsonLayer.getBounds();
+      if(bounds.isValid()){
+        map.fitBounds(geojsonLayer.getBounds());
+      }
+    }
   }
   componentDidMount() {
     this.renderMap(this.props.data);

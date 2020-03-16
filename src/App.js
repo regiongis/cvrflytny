@@ -303,6 +303,7 @@ class App extends Component {
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, " +
       "komnavn from data.kommune group by komkode, komnavn order by komnavn";
    // komUrl = "kom.json";
+   console.log("getkommuner called");
     let that = this;
     jQuery.ajax({
       url: komUrl,
@@ -311,6 +312,7 @@ class App extends Component {
       success: function(res) {
         let koms = res.features.map(feature => feature.properties);
         that.setState(preveState => ({ kommuner: koms }));
+        console.log("getkommuner succeded");
       }
     });
   }
