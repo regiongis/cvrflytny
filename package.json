@@ -2,7 +2,7 @@
   "name": "cvr_flyt_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://erhvervsinfo.org",
+  "homepage": "https://erhvervsinfo.org/",
   "dependencies": {
     "@date-io/moment": "^1.3.13",
     "@devexpress/dx-react-core": "^2.7.1",
