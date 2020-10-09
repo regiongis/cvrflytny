@@ -124,7 +124,7 @@ class GridData extends React.PureComponent {
       feature.properties["keyIndex"] = index;
       let s = feature.properties['fuldt ansvarlige deltagere'];
       if(s !== null && s.length > 0)
-        feature.properties['fuldt ansvarlige deltagere'] = s.replace(/\"/g,'');
+        feature.properties['fuldt ansvarlige deltagere'] = s.replace(/"/g,'');
       if(s === "NULL")
         feature.properties['fuldt ansvarlige deltagere'] = "";
       return feature.properties;

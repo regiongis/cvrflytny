@@ -8,6 +8,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import IconButton from "@material-ui/core/IconButton";
 import SendIcon from "@material-ui/icons/Send";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import Typography from "@material-ui/core/Typography";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -23,9 +24,14 @@ import BarChart from "@material-ui/icons/BarChart";
 import MomentUtils from "@date-io/moment";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { DatePicker } from "@material-ui/pickers";
+import Button from "@material-ui/core/Button";
+import Link from '@material-ui/core/Link';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import MapData from "./Map.js";
 import GridData from "./Grid.js";
 import GraphData from "./Graph.js";
+import Title from "./components/Title";
 
 import "./App.css";
 import classnames from "classnames";
@@ -34,19 +40,12 @@ import jQuery from "jquery";
 import { navigate } from "@reach/router";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import TemporaryDrawer from "./Drawer";
-import Alert from "./Alert";
+import LoginComponent from "./components/Login/Login";
+import CreateUserDialog from "./components/Register/create";
+import Logout from "./components/Logout";
 
 moment.locale("da");
 
-/*
-TODO:
-1. use the filtered list to update the data -- done
-2. add reset btn to the list -- done
-3. Filteredrows to update csv_data. now excel is up to date -- done
-3. Finish the table component to the extra requested columns -- need to be done
-4. Fix map renderfeatures when data is empty
-5. make list to filter generic, not hard coded
-*/
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -87,7 +86,6 @@ const theme = createMuiTheme({
   }
 });
 
-//TODO: complete the select  comp!!!
 function uniqueValues(colValues) {
   let vals = [...new Set(colValues)];
   return vals;
@@ -181,7 +179,7 @@ class App extends Component {
       kommuner: [],
       komkode: this.props.komnr,// || '165',
      
-      csvData: [], // used for Excel print
+      csvData: [], 
       loading: true,
       completed: 0,
       canSendRequest: false,
@@ -190,13 +188,25 @@ class App extends Component {
       alertOpen: false,
       alertMessage: '',
       uniqueVals: {},
-      /*
-      This is the data which will be rendered and printed by the excel component.
-      All filtering will act on this array. 
-      The reset button will reset this arrat to 
-              dataToRender = this.state.data or this.state.csvData;
-      */
-      dataToRender: [] 
+      dataToRender: [],
+      isLoginShown : true,
+      isRegisterFormShown : false,
+      sessionId : sessionStorage.getItem("sessionId") || "",
+      loginData:{
+        user:{value:"", error:false, helperText:"*"},
+        password: {value:"", error:false, helperText:"*"}
+      },
+      registrationErrorMessage: "",
+      loginErrorMessage:false
+      // registrationData: {
+      //   name: {value:"", error:false, helperText:"*"},
+      //   email: {value:"", error:false, helperText:"*"},
+      //   organisation:{value:"", error:false, helperText:"*"},
+      //   password:{value:"", error:false, helperText:"*"},
+      //   password2:{value:"", error:false, helperText:"*"},
+      //   consent: {value:true, error:false, helperText:"*"},
+      //   btnDisabled : true
+      // } 
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -212,20 +222,43 @@ class App extends Component {
     this.updateRenderDataFromTable = this.updateRenderDataFromTable.bind(this);
     this.doFilter = this.doFilter.bind(this);
     this.onAlertClose = this.onAlertClose.bind(this);
+    this.handleCreateDialogOpen = this.handleCreateDialogOpen.bind(this);
+    this.handleCreateDialogClose = this.handleCreateDialogClose.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
+    this.handleLoginDatachange = this.handleLoginDatachange.bind(this);
   }
 
   onAlertClose(){
     this.setState({alertOpen: false});
   }
 
+  handleLoginDatachange(event){
+    let that = this;
+    console.log("I was called!!!");
+      const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        that.setState({
+          loginData: {
+            ...this.state.loginData,
+            [name]: {
+                ...this.state.loginData[name],
+                value:value
+            }
+          }
+        });
+  }
+
   doFilter(){
     const uniqueVals = this.state.uniqueVals;
     const filteredCategories = Object.keys(uniqueVals);
-    // console.log(filteredCategories);
     let filters = {};
-     filteredCategories.forEach(cat =>{
+    filteredCategories.forEach(cat =>{
       let temp = uniqueVals[cat];
-      // console.log(temp)
+      
       filters[cat] = temp.filter(obj => {
         return Object.values(obj)[0] === true;
       })
@@ -237,10 +270,9 @@ class App extends Component {
      const data = dataToRender.filter(row => {
       let res = true;
       filteredCategories.forEach(key =>{
-      //  console.log(row.properties[key]);
-      if(filters[key].length > 0 
-        && filters[key].indexOf(row.properties[key]) === -1)
-             res = false;
+        if(filters[key].length > 0 
+          && filters[key].indexOf(row.properties[key]) === -1)
+              res = false;
       });
       return res;
      });
@@ -268,7 +300,7 @@ class App extends Component {
     });
   }
 
-  handleCheckedFilters(text, event){ //console.log('called with => ', text)
+  handleCheckedFilters(text, event){ 
     let [group, name] = text.split("_");
     let checkedGroup = this.state.uniqueVals[group];
     let indexToUpdate = checkedGroup.findIndex(elem => Object.keys(elem)[0] === name);
@@ -290,6 +322,31 @@ class App extends Component {
     this.setState({ filterOpen: !this.state.filterOpen });
   }
 
+  
+
+  
+
+  handleLogout(){
+    let that = this;
+    let sessionUrl = "https://offentligedata.admin.gc2.io/api/v2/session/stop";
+    jQuery.get(sessionUrl,function(res){
+      if(res && res.success){
+        sessionStorage.removeItem("sessionId");
+        that.setState({
+          sessionId : "",
+          data: [],
+          csvData : [],
+          dataToRender : []
+        });
+        if(window.lfMap && window.geojsonLayer){ console.log("removelayer called");
+          window.lfMap.removeLayer(window.geojsonLayer);
+        }
+      }
+    });
+
+    
+  }
+
   handleDrawerOpen() {
     this.setState({ drawerOpen: !this.state.drawerOpen });
   }
@@ -297,46 +354,142 @@ class App extends Component {
   handleFilterClose() {
     this.setState({ filterOpen: false });
   }
-
+ /*
+  https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode,komnavn from data.kommune group by komkode, komnavn order by komnavn
+ */
   getKommuner() {
     let komUrl =
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=select right(komkode, 3)::int komkode, " +
       "komnavn from data.kommune group by komkode, komnavn order by komnavn";
-   // komUrl = "kom.json";
-   console.log("getkommuner called");
+    //komUrl = "kom.json";
     let that = this;
     jQuery.ajax({
       url: komUrl,
       type: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       success: function(res) {
         let koms = res.features.map(feature => feature.properties);
         that.setState(preveState => ({ kommuner: koms }));
-        console.log("getkommuner succeded");
       }
     });
   }
 
+  handleLogin(){
+    let that = this;
+    let sessionUrl = "https://offentligedata.admin.gc2.io/api/v2/session/start";
+    let _loginData = {
+      user: that.state.loginData.user.value,
+      password: that.state.loginData.password.value,
+      database: "ballerup"
+    };
+
+    jQuery.get(sessionUrl, _loginData, function(res){
+      if(res && res.success){
+        sessionStorage.setItem("sessionId", res.data.session_id);
+        that.setState({sessionId: res.data.session_id, loginErrorMessage : false});
+        console.log("login succeeded, session id: ", res.data.session_id);
+      }
+    },"json")
+    .fail(function(res){
+      that.setState({loginErrorMessage : true});
+    })
+    ;
+    //this.setState({sessionId : "loggedin"});
+  }
+
+  handleRegister(userObj){
+    let that = this;
+    let userUrl = "https://offentligedata.admin.gc2.io/api/v2/user";
+    let sessionUrl = "https://offentligedata.admin.gc2.io/api/v2/session/start";
+
+    let data = {
+      name: userObj.email,
+      email: userObj.email,
+      password: userObj.password,
+      subuser: true,
+      usergroup: "erhvervsinfo",
+      parentdb: "ballerup",
+      properties: {
+        org: userObj.organisation,
+        name: userObj.name
+      }
+    }
+
+    let _loginData = {
+      user: userObj.email,
+      password: userObj.password,
+      database: "ballerup"
+    }
+    console.log("before posting data");
+    jQuery.post(userUrl, JSON.stringify(data), function(res){
+      console.log("data posted successfully!");
+      console.log(res);
+      if(res && res.success){
+        jQuery.get(sessionUrl, _loginData, function(res){
+          if(res && res.success){
+            that.handleCreateDialogClose();
+            sessionStorage.setItem("sessionId", res.data.session_id);
+            that.setState({sessionId: res.data.session_id});
+            console.log("login succeeded, session id: ", res.data.session_id);
+          }
+        },"json");
+      }else if(res && !res.success){
+        
+      }
+
+    },
+    "json")
+    .fail(function(res){
+      console.log("login failed, message => ", res.responseJSON.message);
+      that.setState({registrationErrorMessage: that.getErrorMessage(res.responseJSON.errorCode)});
+    })
+    ;
+
+  }
+
+  getErrorMessage(errorMessage){
+    switch(errorMessage){
+      case 'SUB_USER_ALREADY_EXISTS':
+      case 'PARENT_USER_EXISTS_WITH_NAME':
+      case 'USER_ALREADY_EXISTS':
+      case 'EMAIL_ALREADY_EXISTS':
+        return 'E-mail/brugernavn er allerede taget.';
+      case 'WEAK_PASSWORD':
+        return 'Adgangskode skal opfylde følgende kriterier: mindst 8 tegn langt, mindst 1 tal og mindst 1 stort bogstav';
+      default:
+        return 'Der var en fejl ved oprettelse. Prøv igen.'
+    }
+  }
   getData(komkode, startDate, endDate) {
     this.setState(preveState => ({ csvData: [], loading: true }));
     let that = this;
+    let sessionId = this.state.sessionId;
+    let postData = {
+      session_id: sessionId,
+      komkode : komkode,
+      startdate: startDate,
+      enddate: endDate,
+      database:"ballerup"
+    };
+
+    let jsonData = JSON.stringify(postData);
+
     if (!komkode) {
       this.setState({ loading: false });
       return;
     }
+
+    let newUrl = "https://offentligedata.admin.gc2.io/extensions/offentligedata/api/request"
     let dataUrl =
       "https://drayton.mapcentia.com/api/v1/sql/ballerup?q=SELECT * FROM cvr.flyt_fad_dev(" +
       komkode +
       ",'"+ startDate +"','"+ endDate +"')&srs=4326";
-    //dataUrl = "data.json";
-    // console.log(dataUrl);
-    jQuery.ajax({
-      url: dataUrl,
-      type: "GET",
-      dataType: "jsonp",
+      jQuery.ajax({
+      url: newUrl, // dataUrl,
+      type: "POST",
+      dataType: "json",
+      data: jsonData,
       success: function(res) {
-        //that.setState(preveState => ({ data: res.features }));
-        // console.log(res.features);
         let csv = res.features.map(feature => feature.properties);
         res.features.forEach(feature => {
           let form = feature.properties.virksomhedsform;
@@ -353,6 +506,12 @@ class App extends Component {
           uniqueVals: uniqueValuesGroupedByKey(csv,filterWords)
         }));
       }
+      // ,
+      // timeout: 15000,
+      // error: function(xhr, textStatus, errorThrown){
+      //   console.log("error timeout!!!!");
+      //   that.setState({loading : false});
+      // }
     });
   }
 
@@ -361,14 +520,13 @@ class App extends Component {
     this.setState(prevState => ({ komkode: event.target.value }));
   }
 
-  componentDidMount() {
+  componentDidMount() { console.log("");
     let { komkode, startDate, endDate } = this.state;
     this.getData(komkode, startDate, endDate);
     this.getKommuner();
   }
 
   componentWillUnmount() {
-    //clearInterval(this.timer);
   }
 
   handleChange(event, value) {
@@ -394,6 +552,21 @@ class App extends Component {
     });
   }
 
+  handleCreateDialogOpen(){
+    console.log("Createdialog open")
+    this.setState({
+      isRegisterFormShown : true,
+      isLoginShown : false
+    });
+  }
+
+  handleCreateDialogClose(){
+    this.setState({
+      isRegisterFormShown : false,
+      isLoginShown : true  
+    });
+  }
+
   render() {
     const { value, startDate, endDate, kommuner, komkode } = this.state;
     const locale = "da";
@@ -412,81 +585,111 @@ class App extends Component {
             filterWords={filterWords}
           />
 
-          {/* <Alert 
-            open={this.state.alertOpen}
-            message={this.state.alertMessage}
-            onClose={this.state.onAlertClose}
-          /> */}
+          <CreateUserDialog 
+            handleRegister = {this.handleRegister}
+            isRegisterFormShown={this.state.isRegisterFormShown}
+            handleCreateDialogClose={this.handleCreateDialogClose}
+            handleCreateDialogOpen={this.handleCreateDialogOpen}
+            errorMessage={this.state.registrationErrorMessage}
+          />
           <div className="">
             <AppBar position="static" color="default">
               <Toolbar>
-                <Grid container /*spacing={}*/>
-                  <Grid item xs={3}>
-                    <Typography variant="h6" color="inherit">
-                      CVR Flyttemønster
-                    </Typography>
-                  </Grid>
+                <Grid container>
                   <Grid item xs={2}>
-                    <form
-                      className={classnames.container}
-                      noValidate
-                      autoComplete="off"
-                    >
-                      <TextField
-                        id="standard-select"
-                        select
-                        label="Kommune"
-                        placeholder="Placeholder"
-                        className={classnames.textField}
-                        value={this.state.komkode || ""}
-                        onChange={this.handleSelect}
-                        SelectProps={{
-                          native: true
-                        }}
-                        helperText=""
-                        InputLabelProps={{ shrink: true }}
+                    <Title/>
+                  </Grid>
+                  {this.state.sessionId === "" && (
+                    <>
+                  {/* <Grid item xs={7}> */}
+                    <LoginComponent 
+                      loginData={this.state.loginData}
+                      handleLoginDatachange = {this.handleLoginDatachange} 
+                      errorMessage = {this.state.loginErrorMessage}
+                    /> 
+                  {/* </Grid> */}
+                  <Grid item xs={1}>
+                      <Button variant="contained" color="primary" size="small" onClick={this.handleLogin}>
+                      Log på
+                      </Button> 
+                  </Grid> 
+                  {/* <Grid item xs={1}>eller</Grid> */}
+                   <Grid item xs={2}>
+                   eller &nbsp;<Link color="inherit" underline="always" component="button" onClick={this.handleCreateDialogOpen} size="small">Opret dig som bruger</Link>
+                    </Grid>
+                  {/*<Grid item xs={2}>
+                    
+                {/*</Grid>*/}
+                </>
+                  )}
+                  
+                  {this.state.sessionId !== "" && (
+
+
+                    <>
+                    <Grid item xs={2}>
+                      <form
+                        className={classnames.container}
+                        noValidate
+                        autoComplete="off"
                       >
-                        {kommuner.map(kom => {
-                          let selected =
-                            this.state.komkode === kom.komkode
-                              ? "selected"
-                              : false;
-                          // if (selected) console.log(kom.komnavn);
-                          return (
-                            <option key={kom.komkode} value={kom.komkode}>
-                              {kom.komnavn}
-                            </option>
-                          );
-                        })}
-                      </TextField>
-                    </form>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <MuiPickersUtilsProvider
-                      utils={MomentUtils}
-                      locale={locale}
-                      moment={moment}
-                    >
-                      <DatePicker
-                        value={startDate}
-                        label="Startdato"
-                        format="DD MMM YYYY"
-                        onChange={this.handleStart}
-                      />
-                    </MuiPickersUtilsProvider>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <MuiPickersUtilsProvider utils={MomentUtils}>
-                      <DatePicker
-                        value={endDate}
-                        label="Slutdato"
-                        format="DD MMM YYYY"
-                        onChange={this.handleEnd}
-                      />
-                    </MuiPickersUtilsProvider>
-                  </Grid>
-                  {/* <Grid item xs={1}></Grid> */}
-                  <Grid item xs={3}>
+                        <TextField
+                          id="standard-select"
+                          select
+                          label="Kommune"
+                          placeholder="Placeholder"
+                          className={classnames.textField}
+                          value={this.state.komkode || ""}
+                          onChange={this.handleSelect}
+                          SelectProps={{
+                            native: true
+                          }}
+                          helperText=""
+                          InputLabelProps={{ shrink: true }}
+                        >
+                          {kommuner.map(kom => {
+                            
+                            return (
+                              <option key={kom.komkode} value={kom.komkode}>
+                                {kom.komnavn}
+                              </option>
+                            );
+                          })}
+                        </TextField>
+                      </form>
+                    </Grid>
+                    <Grid item xs={2}>
+                      <MuiPickersUtilsProvider
+                        utils={MomentUtils}
+                        locale={locale}
+                        moment={moment}
+                      >
+                        <DatePicker
+                          value={startDate}
+                          label="Startdato"
+                          format="DD MMM YYYY"
+                          onChange={this.handleStart}
+                        />
+                      </MuiPickersUtilsProvider>
+                    </Grid>
+                    <Grid item xs={2}>
+                      <MuiPickersUtilsProvider utils={MomentUtils}>
+                        <DatePicker
+                          value={endDate}
+                          label="Slutdato"
+                          format="DD MMM YYYY"
+                          onChange={this.handleEnd}
+                        />
+                      </MuiPickersUtilsProvider>
+                    </Grid>
+                    
+                    </>  
+                  )}
+
+                  {this.state.sessionId !== "" &&(
+                    <>
+                    
+                   <Grid item xs={3}>
                     <IconButton
                       arial-label="Done"
                       onClick={this.handleDoneClick}
@@ -543,59 +746,17 @@ class App extends Component {
                           />
                         </ExcelSheet>
                       </ExcelFile>
-                    )}                
-                  </Grid>
-
-                  {/* <Grid item xs={2}>
-                    <IconButton
-                      arial-label="Filter"
-                      onClick={this.handleDrawerOpen}
-                    >
-                      <FilterListIcon />
-                    </IconButton>
-                  </Grid> */}
-
-                  {/* <Grid item xs={2}>
-                    {this.state.csvData.length > 0 && (
-                      <ExcelFile
-                        element={
-                          <IconButton arial-label="Excel">
-                            <CloudDownload />
-                          </IconButton>
-                        }
-                        filename={
-                          "export_" + komkode + "_" + startDate + "_" + endDate
-                        }
-                      >
-                        <ExcelSheet data={this.state.csvData} name="CVR">
-                          <ExcelColumn label="Status" value="status" />
-                          <ExcelColumn label="CVR nummer" value="cvr-nummer" />
-                          <ExcelColumn label="P nummer" value="p-nummer" />
-                          <ExcelColumn label="Branche" value="hovedbranche" />
-                          <ExcelColumn label="virksomhedsform" value="virksomhedsform" />
-                          <ExcelColumn label="Virksomhedsnavn" value="navn" />
-                          <ExcelColumn
-                            label="Kontaktperson"
-                            value="fuldt ansvarlige deltagere"
-                          />
-                          <ExcelColumn label="kvartalbes_interval" value="Antal ansatte" />
-                          <ExcelColumn
-                            label="Kommunekode"
-                            value="kommunekode"
-                          />
-                          <ExcelColumn label="vejnavn" value="vejnavn" />
-                          <ExcelColumn label="Husnummer" value="husnummer" />
-                          <ExcelColumn label="Postnummer" value="postnummer" />
-                          <ExcelColumn label="By" value="postdistrikt" />
-                          <ExcelColumn label="Email" value="emailadresse" />
-                          <ExcelColumn
-                            label="Indlæst dato"
-                            value="indlæst dato"
-                          />
-                        </ExcelSheet>
-                      </ExcelFile>
                     )}
-                  </Grid> */}
+                                    
+                  </Grid> 
+                  <Grid item xs={1}>
+                    <Logout handleLogout={this.handleLogout}/>
+                  </Grid>
+                    </>
+                  )}    
+                  
+
+                  
                 </Grid>
               </Toolbar>
             </AppBar>

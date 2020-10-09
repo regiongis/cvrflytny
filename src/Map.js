@@ -4,11 +4,13 @@ import L from "leaflet";
 
 const style = {
   width: "100%",
-  height: "600px"
+  height: "1200px"
 };
 
 var geojsonLayer;
 var map;
+window.geojsonLayer = geojsonLayer;
+window.lfMap = map;
 
 var legend = L.control({ position: "bottomleft" });
 legend.onAdd = function(map) {
@@ -55,13 +57,14 @@ class MapData extends React.Component {
          layers:"kommune",
          format:"image/png",
          token: kftoken,
-         transparent:true
+         transparent:true,
+         minZoom: 11
 
        }
     );
-    map = L.map("map", {
+    window.lfMap = L.map("map", {
       center: [55.876823, 9.961644],//[55.2, 12.2],
-      zoom: 7,
+      zoom: 8,
       layers: [
         toposkaermkortwmts,
         kommuneWms,
@@ -86,23 +89,23 @@ class MapData extends React.Component {
     //   legend.addTo(map);
     // }
 
-     L.control.scale().addTo(map);
+     L.control.scale().addTo(window.lfMap);
   }
   renderFeatures(data) {
-    //console.log('renderfeatures'); console.log(data);
-   // this.setState({renderLegend : true});
-   legend.addTo(map);
+   legend.addTo(window.lfMap);
     var costumIcon = function(status) {
       function selector(status) {
+        const imgUrl = "https://raw.githubusercontent.com/magloire/cvrflytny/master/public/";
         switch (status) {
           case "Tilflytter":
-            return "img/t.png";
+            
+            return imgUrl + "img/t.png";
           case "Fraflytter":
-            return "img/f.png";
+            return imgUrl + "img/f.png";
           case "Nystartet":
-            return "img/n.png";
+            return imgUrl + "img/n.png";
           case "Ophørt":
-            return "img/o.png";
+            return imgUrl + "img/o.png";
           default:
             break;
         }
@@ -116,8 +119,10 @@ class MapData extends React.Component {
       });
     };
 
-    if (geojsonLayer !== undefined) {
-      map.removeLayer(geojsonLayer);
+    if (
+      window.geojsonLayer !== undefined) {
+      window.lfMap.removeLayer(
+        window.geojsonLayer);
     }
 
     function getCenterPoint(data) {
@@ -125,7 +130,7 @@ class MapData extends React.Component {
         ["Nystartet", ""].includes(feature.properties.status)
       );
       if (features.length === 0) return null;
-      return features[0].geometry !== null ? features[0].geometry.coordinates : null;
+      return features[0].geometry.coordinates;
     }
     function onEachFeature(feature, layer) {
       layer.bindPopup(
@@ -139,7 +144,7 @@ class MapData extends React.Component {
       );
     }
 
-    geojsonLayer = L.geoJSON(data, {
+    window.geojsonLayer = L.geoJSON(data, {
       onEachFeature: onEachFeature,
       pointToLayer: function(feature, latlng) {
         //return L.circleMarker(latlng, geojsonMarkerOptions);
@@ -147,17 +152,12 @@ class MapData extends React.Component {
           icon: costumIcon(feature.properties.status)
         });
       }
-    }).addTo(map);
+    }).addTo(window.lfMap);
 
     let centerCoords = getCenterPoint(data);
-    if (centerCoords){
-      map.setView([centerCoords[1], centerCoords[0]], 12);
-    }else{
-      let bounds = geojsonLayer.getBounds();
-      if(bounds.isValid()){
-        map.fitBounds(geojsonLayer.getBounds());
-      }
-    }
+    if (centerCoords) window.lfMap.setView([centerCoords[1], centerCoords[0]], 12);
+    else window.lfMap.fitBounds(
+      window.geojsonLayer.getBounds());
   }
   componentDidMount() {
     this.renderMap(this.props.data);
@@ -204,12 +204,13 @@ class MapData extends React.Component {
       });
     };
     //check if there is markers on the map and remove
-    if (geojsonLayer !== undefined) {
-      map.removeLayer(geojsonLayer);
+    if (window.geojsonLayer !== undefined) {
+      window.lfMap.removeLayer(
+        window.geojsonLayer);
     }
 
     function onEachFeature(feature, layer) {
-      //console.log(layer);
+      console.log("called for each feature");
       layer.bindPopup(
         "<strong>" +
           feature.properties.status +
@@ -221,14 +222,15 @@ class MapData extends React.Component {
       );
     }
 
-    geojsonLayer = L.geoJSON(data, {
+    
+window.geojsonLayer = L.geoJSON(data, {
       onEachFeature: onEachFeature,
       pointToLayer: function(feature, latlng) {
         return L.marker(latlng, {
           icon: costumIcon(feature.properties.status)
         });
       }
-    }).addTo(map);
+    }).addTo(window.lfMap);
 
     // console.log(geojsonLayer.getBounds());
     // map.fitBounds(geojsonLayer.getBounds());
