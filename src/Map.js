@@ -1,10 +1,9 @@
 import React from "react";
 import L from "leaflet";
-//import axios from "axios";
 
 const style = {
   width: "100%",
-  height: "1200px"
+  height: "1200px",
 };
 
 var geojsonLayer;
@@ -13,7 +12,7 @@ window.geojsonLayer = geojsonLayer;
 window.lfMap = map;
 
 var legend = L.control({ position: "bottomleft" });
-legend.onAdd = function(map) {
+legend.onAdd = function (map) {
   var div = L.DomUtil.create("div", "legend");
   div.innerHTML += "<h4>Signaturforklaring</h4>";
   div.innerHTML +=
@@ -22,83 +21,61 @@ legend.onAdd = function(map) {
     '<i style="background:#d79700"></i><span>Fraflyttet</span><br>';
   div.innerHTML +=
     '<i style="background:#298b30"></i><span>Tilflyttet</span><br>';
-  div.innerHTML +=
-    '<i style="background:#c10a0a"></i><span>Ophørt</span><br>';
+  div.innerHTML += '<i style="background:#c10a0a"></i><span>Ophørt</span><br>';
   return div;
 };
 
 class MapData extends React.Component {
   constructor(props) {
-    super(props); // console.log(props.data);
+    super(props);
     this.state = {
       data: {},
-      renderLegend: false
+      renderLegend: false,
     };
   }
 
   renderMap(data) {
     var myAttributionText =
       '&copy; <a target="_blank" href="https://download.kortforsyningen.dk/content/vilk%C3%A5r-og-betingelser">Styrelsen for Dataforsyning og Effektivisering</a>';
-    var kftoken = "d12107f70a3ee93153f313c7c502169a";
+    var kftoken = "88c934808ac7ad80447995a577c6a32b";
     var toposkaermkortwmts = L.tileLayer.wms(
-      "https://services.kortforsyningen.dk/topo_skaermkort",
+      "https://api.dataforsyningen.dk/topo_skaermkort_DAF?service=WMS&request=GetCapabilities",
       {
         layers: "dtk_skaermkort_daempet",
         token: kftoken,
         format: "image/png",
-        attribution: myAttributionText
+        attribution: myAttributionText,
       }
     );
 
     var kommuneWms = L.tileLayer.wms(
-      "https://services.kortforsyningen.dk/service?request=GetCapabilities&servicename=dagi"
-       +"&service=WMS&version=1.1.1",
-       {
-         layers:"kommune",
-         format:"image/png",
-         token: kftoken,
-         transparent:true,
-         minZoom: 11
-
-       }
+      "https://api.dataforsyningen.dk/dagi_DAF?service=WMS&request=GetCapabilities" +
+        "&service=WMS&version=1.1.1",
+      {
+        layers: "Kommuneinddeling",
+        format: "image/png",
+        token: "88c934808ac7ad80447995a577c6a32b",
+        transparent: true,
+        minZoom: 10,
+      }
     );
+
     window.lfMap = L.map("map", {
-      center: [55.876823, 9.961644],//[55.2, 12.2],
+      center: [55.876823, 9.961644],
       zoom: 8,
-      layers: [
-        toposkaermkortwmts,
-        kommuneWms,
-      ]
+      layers: [toposkaermkortwmts, kommuneWms],
     });
 
-    // var legend = L.control({ position: "bottomleft" });
-    // legend.onAdd = function(map) {
-    //   var div = L.DomUtil.create("div", "legend");
-    //   div.innerHTML += "<h4>Signaturforklaring</h4>";
-    //   div.innerHTML +=
-    //     '<i style="background:#0020d7"></i><span>NyStartet</span><br>';
-    //   div.innerHTML +=
-    //     '<i style="background:#d79700"></i><span>Fraflyttet</span><br>';
-    //   div.innerHTML +=
-    //     '<i style="background:#298b30"></i><span>Tilflyttet</span><br>';
-    //   div.innerHTML +=
-    //     '<i style="background:#c10a0a"></i><span>Ophørt</span><br>';
-    //   return div;
-    // };
-    // if(this.state.renderLegend){
-    //   legend.addTo(map);
-    // }
-
-     L.control.scale().addTo(window.lfMap);
+    L.control.scale().addTo(window.lfMap);
   }
   renderFeatures(data) {
-   legend.addTo(window.lfMap);
-    var costumIcon = function(status) {
+    legend.addTo(window.lfMap);
+    var costumIcon = function (status) {
       function selector(status) {
-        const imgUrl = "https://raw.githubusercontent.com/magloire/cvrflytny/master/public/";
+        const imgUrl =
+          "https://raw.githubusercontent.com/magloire/cvrflytny/master/public/";
         switch (status) {
           case "Tilflytter":
-            
             return imgUrl + "img/t.png";
           case "Fraflytter":
             return imgUrl + "img/f.png";
@@ -115,18 +92,16 @@ class MapData extends React.Component {
         shadowUrl: "img/shadow.png",
         iconAnchor: [16, 37],
         shadowAnchor: [20, 35],
-        popupAnchor: [0, -30]
+        popupAnchor: [0, -30],
       });
     };
 
-    if (
-      window.geojsonLayer !== undefined) {
-      window.lfMap.removeLayer(
-        window.geojsonLayer);
+    if (window.geojsonLayer !== undefined) {
+      window.lfMap.removeLayer(window.geojsonLayer);
     }
 
     function getCenterPoint(data) {
-      let features = data.filter(feature =>
+      let features = data.filter((feature) =>
         ["Nystartet", ""].includes(feature.properties.status)
       );
       if (features.length === 0) return null;
@@ -146,18 +121,17 @@ class MapData extends React.Component {
 
     window.geojsonLayer = L.geoJSON(data, {
       onEachFeature: onEachFeature,
-      pointToLayer: function(feature, latlng) {
-        //return L.circleMarker(latlng, geojsonMarkerOptions);
+      pointToLayer: function (feature, latlng) {
         return L.marker(latlng, {
-          icon: costumIcon(feature.properties.status)
+          icon: costumIcon(feature.properties.status),
         });
-      }
+      },
     }).addTo(window.lfMap);
 
     let centerCoords = getCenterPoint(data);
-    if (centerCoords) window.lfMap.setView([centerCoords[1], centerCoords[0]], 12);
-    else window.lfMap.fitBounds(
-      window.geojsonLayer.getBounds());
+    if (centerCoords)
+      window.lfMap.setView([centerCoords[1], centerCoords[0]], 12);
+    else window.lfMap.fitBounds(window.geojsonLayer.getBounds());
   }
   componentDidMount() {
     this.renderMap(this.props.data);
@@ -168,8 +142,6 @@ class MapData extends React.Component {
 
   componentDidUpdate() {
     console.log("componentdidupdate");
-    //const { data } = this.props;
-    //this.renderFeatures(data);
     if (this.props.data.length > 0) {
       this.renderFeatures(this.props.data);
     } else {
@@ -178,9 +150,7 @@ class MapData extends React.Component {
   }
 
   renderMarkers(data) {
-    //select marker depending on status
-    //let mymap = this.map;
-    var costumIcon = function(status) {
+    var costumIcon = function (status) {
       function selector(status) {
         switch (status) {
           case "Tilflytter":
@@ -200,13 +170,11 @@ class MapData extends React.Component {
         shadowUrl: "img/shadow.png",
         iconAnchor: [16, 37],
         shadowAnchor: [20, 35],
-        popupAnchor: [0, -30]
+        popupAnchor: [0, -30],
       });
     };
-    //check if there is markers on the map and remove
     if (window.geojsonLayer !== undefined) {
-      window.lfMap.removeLayer(
-        window.geojsonLayer);
+      window.lfMap.removeLayer(window.geojsonLayer);
     }
 
     function onEachFeature(feature, layer) {
@@ -222,22 +190,18 @@ class MapData extends React.Component {
       );
     }
 
-    
-window.geojsonLayer = L.geoJSON(data, {
+    window.geojsonLayer = L.geoJSON(data, {
       onEachFeature: onEachFeature,
-      pointToLayer: function(feature, latlng) {
+      pointToLayer: function (feature, latlng) {
         return L.marker(latlng, {
-          icon: costumIcon(feature.properties.status)
+          icon: costumIcon(feature.properties.status),
         });
-      }
+      },
     }).addTo(window.lfMap);
-
-    // console.log(geojsonLayer.getBounds());
-    // map.fitBounds(geojsonLayer.getBounds());
   }
 
   render() {
-    return <div id="map" style={style}></div>;
+    return <div id='map' style={style}></div>;
   }
 }
 
