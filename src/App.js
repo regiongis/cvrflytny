@@ -27,7 +27,7 @@ import { DatePicker } from "@material-ui/pickers";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
+import InfoIcon from "@material-ui/icons/Info";
 import MapData from "./Map.js";
 import GridData from "./Grid.js";
 import GraphData from "./Graph.js";
@@ -750,7 +750,7 @@ class App extends Component {
 
                   {this.state.sessionId !== "" && (
                     <>
-                      <Grid item xs={3}>
+                      <Grid item xs={2}>
                         <IconButton
                           arial-label='Done'
                           onClick={this.handleDoneClick}
@@ -840,6 +840,16 @@ class App extends Component {
                       </Grid>
                     </>
                   )}
+                  <Grid item xs={1}>
+                    <a 
+                      href="http://www2.htk.dk/Teknik_og_miljoecenter/Erhvervsinfo/Vejledning_Erhvervsinfo_20201008.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <IconButton>
+                        <InfoIcon/>
+                      </IconButton>
+                    </a>
+                  </Grid>
                 </Grid>
               </Toolbar>
             </AppBar>
