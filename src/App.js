@@ -845,7 +845,9 @@ class App extends Component {
                       href="http://www2.htk.dk/Teknik_og_miljoecenter/Erhvervsinfo/Vejledning_Erhvervsinfo_20201008.pdf"
                       target="_blank"
                       rel="noopener noreferrer">
-                      <IconButton>
+                      <IconButton
+                        color="primary"
+                      >
                         <InfoIcon/>
                       </IconButton>
                     </a>
