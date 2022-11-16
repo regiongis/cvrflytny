@@ -793,6 +793,10 @@ class App extends Component {
                               />
                               <ExcelColumn label='P nummer' value='p-nummer' />
                               <ExcelColumn
+                                label='Branche (kode)'
+                                value='hovedbranchekode'
+                              />
+                              <ExcelColumn
                                 label='Branche'
                                 value='hovedbranche'
                               />
