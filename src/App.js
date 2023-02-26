@@ -832,6 +832,10 @@ class App extends Component {
                               <ExcelColumn label='By' value='postdistrikt' />
                               <ExcelColumn label='Email' value='emailadresse' />
                               <ExcelColumn
+                                label='Startdato cvr'
+                                value='startdato'
+                              />
+                              <ExcelColumn
                                 label='Indlæst dato'
                                 value='indlæst dato'
                               />
