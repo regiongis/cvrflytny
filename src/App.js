@@ -850,14 +850,16 @@ class App extends Component {
                   )}
                   <Grid item xs={1}>
                     <a 
-                      href="http://www2.htk.dk/Teknik_og_miljoecenter/Erhvervsinfo/Vejledning_Erhvervsinfo_20201008.pdf"
+                      href="https://github.com/regiongis/erhvervsinfo/blob/master/Vejledning_Erhvervsinfo_20231210.pdf"
                       target="_blank"
                       rel="noopener noreferrer">
-                      <IconButton
-                        color="primary"
-                      >
-                        <InfoIcon/>
-                      </IconButton>
+                      <Tooltip title="Hjælpevejledning">
+                        <IconButton
+                          color="primary"
+                        >
+                          <InfoIcon/>
+                        </IconButton>
+                      </Tooltip>
                     </a>
                   </Grid>
                 </Grid>
